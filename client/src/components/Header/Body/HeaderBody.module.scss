@@ -1,0 +1,26 @@
+/** @format */
+
+@import '@styles/variables.scss';
+
+//========================================================================================================================================================
+.inner {
+  padding: 10px 20px;
+  background-color: #ecf1f2;
+}
+.container {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1599.98px;
+}
+
+.logo {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 32px;
+  color: $mainDarkColor;
+  white-space: nowrap;
+}
+
+//========================================================================================================================================================

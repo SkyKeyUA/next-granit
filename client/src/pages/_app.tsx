@@ -12,10 +12,10 @@ import '@styles/index.scss';
 export default function App({ Component, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest);
   return (
-    <MainLayout>
-      <Provider store={store}>
+    <Provider store={store}>
+      <MainLayout>
         <Component {...props.pageProps} />
-      </Provider>
-    </MainLayout>
+      </MainLayout>
+    </Provider>
   );
 }
