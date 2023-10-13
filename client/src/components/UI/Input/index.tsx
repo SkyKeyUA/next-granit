@@ -32,7 +32,7 @@ export const Input = () => {
         <SvgIcon
           src={IconsEnum.search}
           className={`${styles.icon} ${styles.icon_search}`}
-          style={{ width: '20px', height: '20px' }}
+          size={20}
         />
         <input
           ref={inputRef}
@@ -46,7 +46,7 @@ export const Input = () => {
           <SvgIcon
             src={IconsEnum.btnremove}
             className={`${styles.icon} ${styles.icon_remove}`}
-            style={{ width: '32px', height: '32px' }}
+            size={32}
             onClick={onClickClear}
           />
         )}
