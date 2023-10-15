@@ -3,7 +3,7 @@
 @import '@styles/variables.scss';
 
 //========================================================================================================================================================
-.root {
+.inner {
   padding: 10px 20px;
   background-color: #ecf1f2;
 }
@@ -11,8 +11,6 @@
   display: flex;
   min-height: 70px;
   align-items: center;
-  margin: 0 auto;
-  max-width: 1599.98px;
 }
 
 .logo {

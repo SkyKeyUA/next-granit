@@ -28,7 +28,7 @@ export const Input = () => {
   };
   return (
     <div className={styles.search}>
-      <div className={styles.container}>
+      <div className={styles.inner}>
         <SvgIcon
           src={IconsEnum.search}
           className={`${styles.icon} ${styles.icon_search}`}

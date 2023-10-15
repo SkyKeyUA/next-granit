@@ -14,7 +14,7 @@ export const HeaderBody = () => {
   ];
   const [openNumber, setOpenNumber] = React.useState(false);
   return (
-    <div className={styles.root}>
+    <div className={styles.inner}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <SvgIcon src={IconsEnum.logo} style={{ width: '275px', height: '27px' }} />
