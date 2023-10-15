@@ -1,0 +1,107 @@
+/** @format */
+
+@import '@styles/variables.scss';
+
+//========================================================================================================================================================
+.inner {
+  padding: 10px 20px;
+  background-color: #ecf1f2;
+}
+.container {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+}
+
+.logo {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 32px;
+  color: $mainDarkColor;
+  white-space: nowrap;
+}
+
+//========================================================================================================================================================
+.actions {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+.location {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  margin-right: 25px;
+  path {
+    transition: all 0.3s ease 0s;
+  }
+  &:hover {
+    path {
+      fill: #e8aa31;
+    }
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.favorite {
+  font-size: 27px;
+  path {
+    transition: all 0.3s ease 0s;
+  }
+  &:hover {
+    path {
+      fill: #e8aa31;
+    }
+  }
+}
+
+.items {
+  position: relative;
+}
+
+.phone {
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: transform 0.3s ease 0s;
+  &:hover {
+    color: $mainOrange;
+  }
+}
+
+.arrow {
+  color: $mainOrange;
+  font-size: 10px;
+  transition: transform 0.3s ease 0s;
+  margin-left: 17px;
+  &_open {
+    transform: rotate(-180deg);
+  }
+}
+
+.list {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  margin-top: 5px;
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+  li {
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+  &_open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
