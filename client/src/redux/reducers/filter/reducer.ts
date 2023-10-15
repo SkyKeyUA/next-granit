@@ -1,7 +1,8 @@
 /** @format */
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FilterSliceState } from './type';
+import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState: FilterSliceState = {
   categoryId: 0,
@@ -18,6 +19,14 @@ export const filterReducer = createSlice({
     setSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(HYDRATE, (state, action: AnyAction) => {
+      return {
+        ...state,
+        ...action.payload.filter,
+      };
+    });
   },
 });
 
