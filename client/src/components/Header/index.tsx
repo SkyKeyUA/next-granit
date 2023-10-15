@@ -7,7 +7,7 @@ import { HeaderBody } from './Body';
 import { useAppDispatch } from '@hooks/redux';
 import { setCategoryId } from '@redux/reducers/filter/reducer';
 import { useSelector } from 'react-redux';
-import { selectFilter } from '@redux/reducers/filter/selectors';
+import { useFilterSelector } from '@redux/reducers/filter/selectors';
 import { Catalog } from './Catalog';
 
 export const Header: React.FC = () => {
@@ -15,7 +15,8 @@ export const Header: React.FC = () => {
   const onClickCatalog = React.useCallback((idx: number) => {
     dispatch(setCategoryId(idx));
   }, []);
-  const { categoryId } = useSelector(selectFilter);
+  const { categoryId } = useFilterSelector();
+  console.log(categoryId);
   return (
     <header className={styles.root}>
       <HeaderTop />
