@@ -1,0 +1,108 @@
+/** @format */
+
+@import '@styles/variables.scss';
+
+.inner {
+  position: relative;
+  background-color: $mainDarkColor;
+  color: #fff;
+}
+.container {
+  padding: 0 10px;
+}
+
+.menu {
+}
+
+.menu-catalog {
+}
+.list {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid $mainOrange;
+}
+.items {
+  position: relative;
+  cursor: pointer;
+}
+
+.item {
+}
+
+.link {
+  min-height: 70px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.3s ease 0s;
+  &:hover {
+    color: $mainOrange;
+  }
+  &_open {
+    color: $mainOrange;
+  }
+}
+
+.sub-menu-catalog {
+}
+.row {
+  height: 100%;
+  display: block;
+  transition: all 0.3s ease 0s;
+  a,
+  a:visited {
+    color: #fff;
+  }
+}
+
+.category {
+  align-self: flex-start;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  padding: 30px 15px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.sub_list {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 20px;
+  padding: 15px 10px;
+  background-color: #141414;
+  overflow-x: auto;
+  justify-content: space-between;
+}
+
+.sub_item {
+}
+
+.sub_link {
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    text-decoration: underline;
+    &:visited {
+      color: $mainOrange;
+    }
+  }
+}
+
+.all {
+  align-self: flex-start;
+  font-size: 16px;
+  color: $mainOrange;
+  padding: 30px 15px 0px 15px;
+  &:hover {
+    text-decoration: underline;
+  }
+}

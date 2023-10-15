@@ -1,0 +1,41 @@
+/** @format */
+
+@import '@styles/variables.scss';
+
+.inner {
+  background-color: $mainDarkColor;
+  padding: 10px 20px;
+  a:visited {
+    color: #fff;
+  }
+}
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 50px;
+}
+
+.menu {
+  flex: 1 1 auto;
+}
+
+.body {
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: rem(5);
+  gap: 60px;
+}
+
+.item {
+}
+
+.link {
+  line-height: 1.2;
+  &:hover {
+    text-decoration: underline;
+  }
+}
