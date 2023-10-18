@@ -16,7 +16,6 @@ export const Header: React.FC = () => {
     dispatch(setCategoryId(idx));
   }, []);
   const { categoryId } = useFilterSelector();
-  console.log(categoryId);
   return (
     <header className={styles.root}>
       <HeaderTop />

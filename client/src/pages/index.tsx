@@ -1,14 +1,11 @@
 /** @format */
 
+import { Card } from '@components/Card';
+import dynamic from 'next/dynamic';
 import React from 'react';
 
-const HomePage = () => {
-  return (
-    <div className="center">
-      <h1>Home Page</h1>
-      <h3>Granite and Marble!</h3>
-    </div>
-  );
-};
+const HomePage = dynamic(() => import('@views/HomePage').then((mod) => mod.HomePage));
 
-export default HomePage;
+export default function Home() {
+  return <HomePage />;
+}

@@ -50,7 +50,7 @@ export const HeaderBody = () => {
               </ul>
             </div>
           </div>
-          <Link href="/" className={styles.favorite}>
+          <Link href="/" className={styles.favourite}>
             <SvgIcon src={IconsEnum.favourite} style={{ width: '28px', height: '27px' }} />
           </Link>
         </div>
