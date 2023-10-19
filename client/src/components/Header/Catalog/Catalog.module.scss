@@ -5,7 +5,7 @@
 .inner {
   position: relative;
   background-color: $mainDarkColor;
-  color: #fff;
+  color: $mainWhite;
 }
 .container {
   padding: 0 10px;
@@ -43,6 +43,10 @@
   &:hover {
     color: $mainOrange;
   }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
   &_open {
     color: $mainOrange;
   }
@@ -56,7 +60,7 @@
   transition: all 0.3s ease 0s;
   a,
   a:visited {
-    color: #fff;
+    color: $mainWhite;
   }
 }
 
@@ -68,6 +72,10 @@
   padding: 30px 15px;
   &:hover {
     text-decoration: underline;
+  }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
   }
 }
 
@@ -85,6 +93,7 @@
 }
 
 .sub_link {
+  display: inline-block;
   font-size: 16px;
   line-height: 1.2;
   white-space: nowrap;
@@ -95,6 +104,10 @@
       color: $mainOrange;
     }
   }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
 }
 
 .all {
@@ -104,5 +117,9 @@
   padding: 30px 15px 0px 15px;
   &:hover {
     text-decoration: underline;
+  }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
   }
 }

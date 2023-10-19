@@ -2,18 +2,18 @@
 
 import React from 'react';
 
-import styles from './Card.module.scss';
+import styles from './Product.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
 
-export const Card: React.FC = () => {
+export const Product: React.FC = () => {
   return (
     <div className={styles.root}>
-      <Link className={styles.productLink} href="/">
-        <SvgIcon className={styles.favourite} src={IconsEnum.favourite} />
+      <Link className={styles.link} href="/">
+        <SvgIcon className={styles.like} src={IconsEnum.like} />
         <Image
-          className={styles.productImg}
+          className={styles.img}
           src="/img/memory/1.jpg"
           alt="productImg"
           fill

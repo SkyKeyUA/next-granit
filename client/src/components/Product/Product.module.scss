@@ -13,31 +13,34 @@
     box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.08);
     transform: translateY(-5px);
   }
+  &:active {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
 }
 
-.favourite {
+.like {
   position: absolute;
   right: 20px;
   top: 20px;
   z-index: 2;
-  fill: $mainOrange;
   path {
-    fill: #fff;
+    fill: $mainWhite;
     transition: all 0.3s ease 0s;
   }
   &:hover {
     path {
-      fill: #e8aa31;
+      fill: $mainRed;
     }
   }
 }
-.productLink {
+.link {
   display: block;
   padding-bottom: 74.5%;
   position: relative;
 }
 
-.productImg {
+.img {
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
 }

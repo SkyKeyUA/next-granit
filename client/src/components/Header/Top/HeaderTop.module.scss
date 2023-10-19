@@ -6,7 +6,7 @@
   background-color: $mainDarkColor;
   padding: 10px 20px;
   a:visited {
-    color: #fff;
+    color: $mainWhite;
   }
 }
 .container {
@@ -35,7 +35,12 @@
 
 .link {
   line-height: 1.2;
+  display: inline-block;
   &:hover {
     text-decoration: underline;
+  }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
   }
 }
