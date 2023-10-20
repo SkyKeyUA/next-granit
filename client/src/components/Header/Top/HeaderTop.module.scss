@@ -31,16 +31,17 @@
 }
 
 .item {
-}
-
-.link {
-  line-height: 1.2;
-  display: inline-block;
+  transition: all 0.3s ease 0s;
   &:hover {
-    text-decoration: underline;
+    a {
+      text-decoration: underline;
+    }
   }
   &:active {
     -webkit-transform: translateY(1px);
     transform: translateY(1px);
   }
+}
+
+.link {
 }

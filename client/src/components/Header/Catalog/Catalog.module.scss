@@ -3,12 +3,13 @@
 @import '@styles/variables.scss';
 
 .inner {
+  padding: 10px 20px;
   position: relative;
   background-color: $mainDarkColor;
   color: $mainWhite;
 }
 .container {
-  padding: 0 10px;
+  margin: 0 auto;
 }
 
 .menu {
@@ -17,27 +18,16 @@
 .menu-catalog {
 }
 .list {
+  font-weight: 700;
+  font-size: 16px;
   display: flex;
   gap: 10px;
   justify-content: space-between;
-  border-bottom: 1px solid $mainOrange;
-}
-.items {
-  position: relative;
-  cursor: pointer;
 }
 
 .item {
-}
-
-.link {
-  min-height: 70px;
-  padding: 0px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
+  cursor: pointer;
+  margin: 20px 0px;
   white-space: nowrap;
   transition: color 0.3s ease 0s;
   &:hover {
@@ -54,9 +44,17 @@
 
 .sub-menu-catalog {
 }
-.row {
+
+.sub_list {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 20px;
+  padding: 15px 0px;
+  background-color: #141414;
+  overflow-x: auto;
+  justify-content: space-between;
   height: 100%;
-  display: block;
+  border-top: 1px solid $mainOrange;
   transition: all 0.3s ease 0s;
   a,
   a:visited {
@@ -64,45 +62,14 @@
   }
 }
 
-.category {
-  align-self: flex-start;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 700;
-  padding: 30px 15px;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:active {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-}
-
-.sub_list {
-  flex: 1 1 auto;
-  display: flex;
-  gap: 20px;
-  padding: 15px 10px;
-  background-color: #141414;
-  overflow-x: auto;
-  justify-content: space-between;
-}
-
 .sub_item {
-}
-
-.sub_link {
-  display: inline-block;
-  font-size: 16px;
   line-height: 1.2;
   white-space: nowrap;
   transition: all 0.3s ease 0s;
+  cursor: pointer;
   &:hover {
     text-decoration: underline;
-    &:visited {
-      color: $mainOrange;
-    }
+    color: $mainOrange;
   }
   &:active {
     -webkit-transform: translateY(1px);

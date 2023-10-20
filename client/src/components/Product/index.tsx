@@ -10,8 +10,8 @@ import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
 export const Product: React.FC = () => {
   return (
     <div className={styles.root}>
+      <SvgIcon className={styles.like} src={IconsEnum.like} />
       <Link className={styles.link} href="/">
-        <SvgIcon className={styles.like} src={IconsEnum.like} />
         <Image
           className={styles.img}
           src="/img/memory/1.jpg"
@@ -21,6 +21,9 @@ export const Product: React.FC = () => {
           sizes="30vw"
         />
       </Link>
+      <div className={styles.title}>
+        <Link href="/">Комплекс одинарного памятника з отмосткою</Link>
+      </div>
     </div>
   );
 };

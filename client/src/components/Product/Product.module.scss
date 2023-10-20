@@ -3,6 +3,7 @@
 @import '@styles/variables.scss';
 
 .root {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 3px solid $mainOrange;
@@ -24,6 +25,7 @@
   right: 20px;
   top: 20px;
   z-index: 2;
+  cursor: pointer;
   path {
     fill: $mainWhite;
     transition: all 0.3s ease 0s;
@@ -33,9 +35,12 @@
       fill: $mainRed;
     }
   }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
 }
 .link {
-  display: block;
   padding-bottom: 74.5%;
   position: relative;
 }
@@ -43,4 +48,17 @@
 .img {
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 20px;
+
+  a {
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $mainOrange;
+    }
+  }
 }

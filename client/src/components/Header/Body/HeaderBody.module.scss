@@ -85,7 +85,7 @@
   font-weight: 600;
   white-space: nowrap;
   line-height: 1.2;
-  transition: transform 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   &:hover {
     color: $mainOrange;
   }
@@ -98,7 +98,7 @@
 .arrow {
   color: $mainOrange;
   font-size: 10px;
-  transition: transform 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   margin-left: 17px;
   &_open {
     transform: rotate(-180deg);
