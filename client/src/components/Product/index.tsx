@@ -21,8 +21,13 @@ export const Product: React.FC = () => {
           sizes="30vw"
         />
       </Link>
-      <div className={styles.title}>
-        <Link href="/">Комплекс одинарного памятника з отмосткою</Link>
+      <div className={styles.body}>
+        <div className={styles.title}>
+          <Link href="/">Комплекс одинарного памятника з отмосткою</Link>
+        </div>
+        <div className={styles.price}>
+          Ціна: <span>Уточнюйте</span>
+        </div>
       </div>
     </div>
   );

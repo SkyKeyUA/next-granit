@@ -3,6 +3,7 @@
 @import '@styles/variables.scss';
 
 .root {
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,10 +14,6 @@
   &:hover {
     box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.08);
     transform: translateY(-5px);
-  }
-  &:active {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
   }
 }
 
@@ -48,17 +45,55 @@
 .img {
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    transform: scale(1.02);
+  }
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.body {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 20px 40px;
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 900;
-  margin: 20px;
-
+  transition: all 0.3s ease 0s;
+  margin-bottom: 20px;
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
   a {
     transition: all 0.3s ease 0s;
     &:hover {
       color: $mainOrange;
+    }
+  }
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $mainOrange;
+      border: 1px solid $mainOrange;
+      -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+    }
+    &:active {
+      -webkit-transform: translateY(1px);
+      transform: translateY(1px);
     }
   }
 }
