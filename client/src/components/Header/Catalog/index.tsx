@@ -71,30 +71,24 @@ export const Catalog: React.FC<CatalogProps> = ({ categoryId, onClickCatalog }) 
     <div className={styles.inner}>
       <div className={styles.container}>
         <nav className={styles.menu}>
-          <div className={styles.list}>
+          <ul className={styles.list}>
             {categories.map(({ id, menuCatalog }) => (
-              <div onClick={() => onClickCatalog(id)} key={id} className={styles.items}>
-                <div className={styles.item}>
-                  <div
-                    className={`${styles.link} ${categoryId === id ? `${styles.link_open}` : ''}`}>
-                    {menuCatalog}
-                  </div>
-                </div>
-              </div>
+              <li
+                onClick={() => onClickCatalog(id)}
+                key={id}
+                className={`${styles.item} ${categoryId === id ? `${styles.item_open}` : ''}`}>
+                {menuCatalog}
+              </li>
             ))}
-          </div>
+          </ul>
           {categories[categoryId].submenuCatalog && (
-            <div className={styles.row}>
-              <ul className={styles.sub_list}>
-                {categories[categoryId].submenuCatalog?.map((obj, index) => (
-                  <li key={index} className={styles.sub_item}>
-                    <Link href="/" className={styles.sub_link}>
-                      {obj}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className={styles.sub_list}>
+              {categories[categoryId].submenuCatalog?.map((obj, index) => (
+                <li key={index} className={styles.sub_item}>
+                  {obj}
+                </li>
+              ))}
+            </ul>
           )}
         </nav>
       </div>

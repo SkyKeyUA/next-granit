@@ -13,7 +13,7 @@ export const HeaderTop = () => {
       <div className={styles.container}>
         <div className={styles.menu}>
           <nav className={styles.body}>
-            <div className={styles.list}>
+            <ul className={styles.list}>
               {menuList.map((name, index) => (
                 <li key={index} className={styles.item}>
                   <Link href="/" className={styles.link}>
@@ -21,7 +21,7 @@ export const HeaderTop = () => {
                   </Link>
                 </li>
               ))}
-            </div>
+            </ul>
           </nav>
         </div>
       </div>
