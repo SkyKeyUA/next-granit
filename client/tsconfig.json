@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@api/*": ["./src/api/*"],
+      "@views/*": ["./src/views/*"],
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@layouts/*": ["./src/layouts/*"],

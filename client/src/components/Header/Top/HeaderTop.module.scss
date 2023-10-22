@@ -6,7 +6,7 @@
   background-color: $mainDarkColor;
   padding: 10px 20px;
   a:visited {
-    color: #fff;
+    color: $mainWhite;
   }
 }
 .container {
@@ -31,11 +31,17 @@
 }
 
 .item {
+  transition: all 0.3s ease 0s;
+  &:hover {
+    a {
+      text-decoration: underline;
+    }
+  }
+  &:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
 }
 
 .link {
-  line-height: 1.2;
-  &:hover {
-    text-decoration: underline;
-  }
 }
