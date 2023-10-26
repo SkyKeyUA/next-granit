@@ -64,7 +64,13 @@ export const Catalog: React.FC<CatalogProps> = ({ categoryId, onClickCatalog }) 
     },
     {
       id: 4,
-      menuCatalog: 'Художні роботи',
+      menuCatalog: 'Послуги',
+      submenuCatalog: [
+        'Художні роботи',
+        "Установка пам'ятників",
+        'Установка комплекса',
+        'Монтажні роботи',
+      ],
     },
   ];
   return (
