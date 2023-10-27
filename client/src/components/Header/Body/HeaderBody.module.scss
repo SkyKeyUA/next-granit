@@ -4,7 +4,6 @@
 
 //========================================================================================================================================================
 .inner {
-  padding: 10px 20px;
   background-color: #ecf1f2;
 }
 .container {
@@ -14,6 +13,7 @@
 }
 
 .logo {
+  display: inline-block;
   font-style: italic;
   font-weight: 600;
   font-size: 32px;
@@ -47,6 +47,9 @@
   path {
     transition: all 0.3s ease 0s;
   }
+  span {
+    transition: all 0.3s ease 0s;
+  }
   &:hover {
     path {
       fill: $mainOrange;
@@ -57,6 +60,7 @@
     }
     span {
       text-decoration: underline;
+      opacity: 0.6;
     }
   }
 }
@@ -83,6 +87,7 @@
 }
 
 .phone {
+  display: inline-block;
   font-weight: 600;
   white-space: nowrap;
   line-height: 1.2;
