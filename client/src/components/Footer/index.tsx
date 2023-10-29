@@ -11,6 +11,72 @@ export const Footer: React.FC = () => {
     { fullNumber: '+380669099669', shortNumber: '066-909-96-69' },
     { fullNumber: '0459565728', shortNumber: ' 04595-6-57-28' },
   ];
+  const categories = [
+    {
+      id: 0,
+      menuCatalog: "Каталог пам'ятників",
+      submenuCatalog: [
+        "Всі Пам'ятники",
+        "Пам'ятники одинарні",
+        "Подвійні пам'ятники",
+        'Меморіальні комплекси',
+        "Ексклюзивні пам'ятники",
+        "Пам'ятники з хрестом",
+      ],
+    },
+    {
+      id: 1,
+      menuCatalog: 'Колір граніту',
+      submenuCatalog: [
+        "Пам'ятники одинарні",
+        "Подвійні пам'ятники",
+        'Меморіальні комплекси',
+        "Ексклюзивні пам'ятники",
+        "Дитячі пам'ятники",
+        "Пам'ятники тваринам",
+        "Пам'ятники з хрестом",
+      ],
+    },
+    {
+      id: 2,
+      menuCatalog: 'Наші вироби',
+      submenuCatalog: [
+        "Пам'ятники одинарні",
+        "Подвійні пам'ятники",
+        'Меморіальні комплекси',
+        "Ексклюзивні пам'ятники",
+        "Дитячі пам'ятники",
+        "Пам'ятники тваринам",
+        "Пам'ятники з хрестом",
+      ],
+    },
+    {
+      id: 3,
+      menuCatalog: 'Аксесуари',
+      submenuCatalog: [
+        "Пам'ятники одинарні",
+        "Подвійні пам'ятники",
+        'Меморіальні комплекси',
+        "Ексклюзивні пам'ятники",
+        "Дитячі пам'ятники",
+        "Пам'ятники тваринам",
+        "Пам'ятники з хрестом",
+      ],
+    },
+    {
+      id: 4,
+      menuCatalog: 'Інформація та Послуги',
+      submenuCatalog: [
+        'Про нас',
+        'Акції',
+        'Оплата та доставка',
+        'Художні роботи',
+        "Установка пам'ятників",
+        'Установка комплекса',
+        'Монтажні роботи',
+      ],
+    },
+  ];
   return (
     <footer className={styles.root}>
       <div className={styles.container}>
@@ -28,7 +94,7 @@ export const Footer: React.FC = () => {
                 <span>м. Бориспіль, вул. Січнева 40Б</span>
               </Link>
             </div>
-            <ul className={styles.list}>
+            <ul className={styles.phones}>
               {phoneNumber.map((obj, index) => (
                 <li className={styles.phone} key={index}>
                   <Link href={`tel:${obj.fullNumber}`}>
@@ -40,14 +106,20 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
           <div className={styles.inner}>
-            <iframe
-              src={`${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_URL}`}
-              width="750"
-              height="600"
-              style={{ border: '0' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <div className={styles.info}>
+              {categories.map((obj) => (
+                <div key={obj.id} className={styles.list}>
+                  <div className={styles.label}>{obj.menuCatalog}</div>
+                  <ul className={styles.items}>
+                    {obj.submenuCatalog.map((subMenu, i) => (
+                      <li className={styles.item} key={i}>
+                        {subMenu}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

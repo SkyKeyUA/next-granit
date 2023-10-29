@@ -10,6 +10,7 @@
   display: flex;
   min-height: 70px;
   align-items: center;
+  padding: 10px;
 }
 
 .logo {
@@ -59,8 +60,7 @@
       transform: translateY(1px);
     }
     span {
-      text-decoration: underline;
-      opacity: 0.6;
+      color: $mainOrange;
     }
   }
 }
