@@ -12,6 +12,7 @@ export enum IconsEnum {
   search = 'img/icons/search.svg',
   user = 'img/icons/user.svg',
   like = 'img/icons/like.svg',
+  phone = 'img/icons/phone.svg',
 }
 
 export type SvgIconProps = {
