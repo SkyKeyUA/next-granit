@@ -20,6 +20,10 @@
   font-size: 32px;
   color: $mainDarkColor;
   white-space: nowrap;
+  margin-right: 110px;
+  @media (max-width: 1599.98px) {
+    margin-right: calc(15px + (110 - 15) * ((100vw - 320px) / (1920 - 320)));
+  }
   path {
     transition: all 0.3s ease 0s;
   }
@@ -44,7 +48,7 @@
   display: inline-flex;
   align-items: center;
   font-weight: 600;
-  margin-right: 25px;
+  margin: 0px 25px;
   path {
     transition: all 0.3s ease 0s;
   }
