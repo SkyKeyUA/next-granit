@@ -7,7 +7,7 @@ import { useAppDispatch } from '@hooks/redux';
 import styles from './Input.module.scss';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
 
-export const Input = () => {
+export const Input: React.FC = () => {
   const dispatch = useAppDispatch();
   const [value, setValue] = React.useState('');
   const inputRef = React.useRef<HTMLInputElement>(null);

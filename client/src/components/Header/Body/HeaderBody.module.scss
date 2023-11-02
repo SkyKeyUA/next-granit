@@ -4,21 +4,26 @@
 
 //========================================================================================================================================================
 .inner {
-  padding: 10px 20px;
   background-color: #ecf1f2;
 }
 .container {
   display: flex;
   min-height: 70px;
   align-items: center;
+  padding: 10px;
 }
 
 .logo {
+  display: inline-block;
   font-style: italic;
   font-weight: 600;
   font-size: 32px;
   color: $mainDarkColor;
   white-space: nowrap;
+  margin-right: 110px;
+  @media (max-width: 1599.98px) {
+    margin-right: calc(15px + (110 - 15) * ((100vw - 320px) / (1920 - 320)));
+  }
   path {
     transition: all 0.3s ease 0s;
   }
@@ -43,8 +48,11 @@
   display: inline-flex;
   align-items: center;
   font-weight: 600;
-  margin-right: 25px;
+  margin: 0px 25px;
   path {
+    transition: all 0.3s ease 0s;
+  }
+  span {
     transition: all 0.3s ease 0s;
   }
   &:hover {
@@ -56,7 +64,7 @@
       transform: translateY(1px);
     }
     span {
-      text-decoration: underline;
+      color: $mainOrange;
     }
   }
 }
@@ -83,6 +91,7 @@
 }
 
 .phone {
+  display: inline-block;
   font-weight: 600;
   white-space: nowrap;
   line-height: 1.2;
