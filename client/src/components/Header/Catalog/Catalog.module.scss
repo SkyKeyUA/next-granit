@@ -1,11 +1,9 @@
 /** @format */
 
-@import '@styles/variables.scss';
-
 .inner {
   position: relative;
-  background-color: $mainDarkColor;
-  color: $mainWhite;
+  background-color: var(--dark);
+  color: var(--primary);
 }
 .container {
   padding: 10px;
@@ -30,14 +28,14 @@
   white-space: nowrap;
   transition: color 0.3s ease 0s;
   &:hover {
-    color: $mainOrange;
+    color: var(--orange);
   }
   &:active {
     -webkit-transform: translateY(1px);
     transform: translateY(1px);
   }
   &_open {
-    color: $mainOrange;
+    color: var(--orange);
   }
 }
 
@@ -49,15 +47,14 @@
   display: flex;
   gap: 20px;
   padding: 15px 0px;
-  background-color: #141414;
   overflow-x: auto;
   justify-content: space-between;
   height: 100%;
-  border-top: 1px solid $mainOrange;
+  border-top: 1px solid var(--orange);
   transition: all 0.3s ease 0s;
   a,
   a:visited {
-    color: $mainWhite;
+    color: var(--primary);
   }
 }
 
@@ -68,7 +65,7 @@
   cursor: pointer;
   &:hover {
     text-decoration: underline;
-    color: $mainOrange;
+    color: var(--orange);
   }
   &:active {
     -webkit-transform: translateY(1px);
@@ -79,7 +76,7 @@
 .all {
   align-self: flex-start;
   font-size: 16px;
-  color: $mainOrange;
+  color: var(--orange);
   padding: 30px 15px 0px 15px;
   &:hover {
     text-decoration: underline;

@@ -1,11 +1,9 @@
 /** @format */
 
-@import '@styles/variables.scss';
-
 .inner {
-  background-color: $mainDarkColor;
+  background-color: var(--dark);
   a:visited {
-    color: $mainWhite;
+    color: var(--primary);
   }
 }
 .container {
@@ -71,7 +69,7 @@
     position: absolute;
     width: 100%;
     height: 0.125rem;
-    background-color: $mainWhite;
+    background-color: var(--primary);
   }
 
   .icon-menu::before {

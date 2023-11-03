@@ -1,18 +1,17 @@
 /** @format */
 
-@import '@styles/variables.scss';
-
 .root {
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 3px solid $mainOrange;
+  border: 3px solid var(--orange);
   border-radius: 15px;
+  color: var(--primary-black);
 
   transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s;
   &:hover {
-    box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-card-hover);
     transform: translateY(-5px);
   }
 }
@@ -24,12 +23,12 @@
   z-index: 2;
   cursor: pointer;
   path {
-    fill: $mainWhite;
+    fill: var(--primary);
     transition: all 0.3s ease 0s;
   }
   &:hover {
     path {
-      fill: $mainRed;
+      fill: var(--red);
     }
   }
   &:active {
@@ -70,7 +69,7 @@
   a {
     transition: all 0.3s ease 0s;
     &:hover {
-      color: $mainOrange;
+      color: var(--orange);
     }
   }
 }
@@ -81,13 +80,13 @@
   align-items: center;
   span {
     padding: 20px;
-    border: 1px solid #000;
+    border: 1px solid var(--primary-black);
     border-radius: 16px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     &:hover {
-      color: $mainOrange;
-      border: 1px solid $mainOrange;
+      color: var(--orange);
+      border: 1px solid var(--orange);
       -webkit-transform: translateY(-2px);
       transform: translateY(-2px);
     }
