@@ -1,10 +1,8 @@
 /** @format */
 
-@import '@styles/variables.scss';
-
 //========================================================================================================================================================
 .inner {
-  background-color: #ecf1f2;
+  background-color: var(--body-color);
 }
 .container {
   display: flex;
@@ -18,7 +16,7 @@
   font-style: italic;
   font-weight: 600;
   font-size: 32px;
-  color: $mainDarkColor;
+  color: var(--dark);
   white-space: nowrap;
   margin-right: 110px;
   @media (max-width: 1599.98px) {
@@ -29,7 +27,7 @@
   }
   &:hover {
     path {
-      fill: $mainOrange;
+      fill: var(--orange);
     }
   }
   &:active {
@@ -57,14 +55,14 @@
   }
   &:hover {
     path {
-      fill: $mainOrange;
+      fill: var(--orange);
     }
     &:active {
       -webkit-transform: translateY(1px);
       transform: translateY(1px);
     }
     span {
-      color: $mainOrange;
+      color: var(--orange);
     }
   }
 }
@@ -76,7 +74,7 @@
   }
   &:hover {
     path {
-      fill: $mainOrange;
+      fill: var(--orange);
     }
     &:active {
       -webkit-transform: translateY(1px);
@@ -97,7 +95,7 @@
   line-height: 1.2;
   transition: all 0.3s ease 0s;
   &:hover {
-    color: $mainOrange;
+    color: var(--orange);
   }
   &:active {
     -webkit-transform: translateY(1px);
@@ -106,7 +104,7 @@
 }
 
 .arrow {
-  color: $mainOrange;
+  color: var(--orange);
   font-size: 10px;
   transition: all 0.3s ease 0s;
   margin-left: 17px;
@@ -121,10 +119,10 @@
   width: 100%;
   left: 0;
   margin-top: 5px;
-  background-color: $mainWhite;
+  background-color: var(--primary);
   padding: 12px;
   border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-card-hover);
   z-index: 2;
   opacity: 0;
   visibility: hidden;

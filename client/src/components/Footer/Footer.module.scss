@@ -1,14 +1,14 @@
 /** @format */
 
-@import '@styles/variables.scss';
 .root {
+  color: var(--primary-black);
 }
 .container {
   padding: 0px 10px;
 }
 .body {
   padding: 20px 0px;
-  border-top: 1px solid $mainColor;
+  border-top: 1px solid var(--primary-black);
   display: flex;
 }
 .inner {
@@ -24,7 +24,6 @@
   font-style: italic;
   font-weight: 600;
   font-size: 32px;
-  color: $mainDarkColor;
   white-space: nowrap;
   margin-bottom: 20px;
   path {
@@ -32,7 +31,7 @@
   }
   &:hover {
     path {
-      fill: $mainOrange;
+      fill: var(--orange);
     }
   }
   &:active {
@@ -56,14 +55,14 @@
     }
     &:hover {
       path {
-        fill: $mainOrange;
+        fill: var(--orange);
       }
       &:active {
         -webkit-transform: translateY(1px);
         transform: translateY(1px);
       }
       span {
-        color: $mainOrange;
+        color: var(--orange);
       }
     }
   }
@@ -86,7 +85,7 @@
     }
     &:hover {
       path {
-        fill: $mainOrange;
+        fill: var(--orange);
       }
       &:active {
         -webkit-transform: translateY(1px);
@@ -94,7 +93,7 @@
       }
       span {
         text-decoration: underline;
-        color: $mainOrange;
+        color: var(--orange);
       }
     }
   }
@@ -131,7 +130,7 @@
     margin-bottom: 20px;
   }
   &:hover {
-    color: $mainOrange;
+    color: var(--orange);
   }
   &:active {
     -webkit-transform: translateY(1px);
