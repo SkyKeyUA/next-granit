@@ -13,6 +13,11 @@ export enum IconsEnum {
   user = 'img/icons/user.svg',
   like = 'img/icons/like.svg',
   phone = 'img/icons/phone.svg',
+  help = 'img/icons/help.svg',
+  info = 'img/icons/info.svg',
+  loader = 'img/icons/loader.svg',
+  moon = 'img/icons/moon.svg',
+  sun = 'img/icons/sun.svg',
 }
 
 export type SvgIconProps = {
