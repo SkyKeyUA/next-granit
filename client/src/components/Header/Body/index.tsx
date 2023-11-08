@@ -6,6 +6,7 @@ import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
 import { Input } from '@components/UI/Input';
 
 import styles from './HeaderBody.module.scss';
+import { SwitchThemeButton } from '@components/UI/Button';
 
 const phoneNumber = [
   { fullNumber: '+380669099669', shortNumber: '066-909-96-69' },
@@ -54,6 +55,7 @@ export const HeaderBody = () => {
           <Link href="/" className={styles.favourite}>
             <SvgIcon src={IconsEnum.favourite} style={{ width: '28px', height: '27px' }} />
           </Link>
+          <SwitchThemeButton />
         </div>
       </div>
     </div>
