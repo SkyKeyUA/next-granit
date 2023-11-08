@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
+/** @format */
 
-import { Button } from "..";
-import { IconsEnum } from "@components/UI/SvgIcon";
+import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 
-import styles from "./SwitchThemeButton.module.scss";
+import { Button } from '..';
+import { IconsEnum } from '@components/UI/SvgIcon';
+
+import styles from './SwitchThemeButton.module.scss';
 
 export const SwitchThemeButtonComponent = () => {
   const [mounted, setMounted] = useState(false);
@@ -22,12 +24,12 @@ export const SwitchThemeButtonComponent = () => {
     <>
       {/* <p>Current theme: {resolvedTheme}</p> */}
       <Button
-        icon={resolvedTheme === "light" ? IconsEnum.moon : IconsEnum.sun}
-        onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+        icon={resolvedTheme === 'light' ? IconsEnum.moon : IconsEnum.sun}
+        onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
         className={styles.themeButton}
       />
     </>
   );
 };
 
-SwitchThemeButtonComponent.displayName = "SwitchThemeButton";
+SwitchThemeButtonComponent.displayName = 'SwitchThemeButton';

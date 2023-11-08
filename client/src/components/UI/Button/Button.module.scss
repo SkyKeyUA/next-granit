@@ -1,3 +1,5 @@
+/** @format */
+
 .button {
   position: relative;
   justify-content: center;
@@ -16,15 +18,16 @@
 
   &_variant {
     &_primary {
-      border: 2px solid var(--white);
+      border: 2px solid var(--primary-black);
       background: var(--light-primary);
-      color: var(--white);
+      color: var(--primary-black);
       stroke: var(--white);
+      transition: all 0.3s ease 0s;
 
       &:hover {
         background: var(--white);
-        stroke: var(--light-primary);
-        color: var(--light-primary);
+        color: var(--orange);
+        border: 2px solid var(--orange);
       }
 
       &:active {
@@ -180,6 +183,27 @@
     @keyframes spin {
       100% {
         transform: rotate(360deg);
+      }
+    }
+  }
+}
+[data-theme='dark'] {
+  .button {
+    &_variant {
+      &_primary {
+        border: 2px solid var(--white);
+        background: var(--light-primary);
+        color: var(--white);
+        stroke: var(--white);
+        &:hover {
+          background: var(--white);
+          stroke: var(--light-primary);
+          color: var(--light-primary);
+        }
+
+        &:active {
+          background: var(--dark-primary);
+        }
       }
     }
   }

@@ -46,12 +46,19 @@
   font-size: 18px;
   transition: all 0.3s ease 0s;
   &::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--dark-grey);
   }
   &:hover {
     box-shadow: var(--shadow-card-hover);
   }
   &:focus {
     box-shadow: var(--shadow-card-hover);
+  }
+}
+[data-theme='dark'] {
+  .input {
+    &::placeholder {
+      color: var(--white);
+    }
   }
 }
