@@ -8,7 +8,6 @@
   border: 3px solid var(--orange);
   border-radius: 15px;
   color: var(--primary-black);
-
   transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s;
   &:hover {
     box-shadow: var(--shadow-card-hover);
@@ -93,6 +92,26 @@
     &:active {
       -webkit-transform: translateY(1px);
       transform: translateY(1px);
+    }
+  }
+}
+
+[data-theme='dark'] {
+  .root {
+    background-color: var(--dark-grey);
+    color: var(--white);
+  }
+  .title {
+    a {
+      color: var(--white);
+      &:hover {
+        color: var(--orange);
+      }
+    }
+  }
+  .price {
+    span {
+      border: 1px solid var(--white);
     }
   }
 }
