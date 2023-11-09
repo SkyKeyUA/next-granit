@@ -9,6 +9,7 @@
   border-radius: 15px;
   color: var(--primary-black);
   transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s;
+  background: var(--light-primary);
   &:hover {
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-5px);
@@ -67,6 +68,7 @@
   }
   a {
     transition: all 0.3s ease 0s;
+    color: var(--primary-black);
     &:hover {
       color: var(--orange);
     }
@@ -92,26 +94,6 @@
     &:active {
       -webkit-transform: translateY(1px);
       transform: translateY(1px);
-    }
-  }
-}
-
-[data-theme='dark'] {
-  .root {
-    background-color: var(--dark-grey);
-    color: var(--white);
-  }
-  .title {
-    a {
-      color: var(--white);
-      &:hover {
-        color: var(--orange);
-      }
-    }
-  }
-  .price {
-    span {
-      border: 1px solid var(--white);
     }
   }
 }

@@ -25,9 +25,8 @@
       transition: all 0.3s ease 0s;
 
       &:hover {
-        background: var(--white);
-        color: var(--orange);
-        border: 2px solid var(--orange);
+        background: var(--primary-black);
+        color: var(--light-primary);
       }
 
       &:active {

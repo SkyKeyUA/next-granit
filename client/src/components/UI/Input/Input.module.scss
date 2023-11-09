@@ -5,10 +5,10 @@
 }
 .inner {
   max-width: 377px;
-  background-color: rgba(7, 7, 7, 0.03);
+  background-color: var(--input-bg);
   border-radius: 3px;
   position: relative;
-  border: 1px solid rgba(4, 4, 4, 0.5);
+  border: 1px solid var(--primary-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,15 +24,12 @@
 }
 .icon_search {
   left: 10px;
-  &:hover path {
-    fill: #575757;
-  }
 }
 .icon_remove {
   right: 10px;
   transition: all 0.3s ease 0s;
   &:hover path:not(:first-child) {
-    fill: #575757;
+    fill: var(--light-primary);
   }
 }
 
@@ -46,19 +43,12 @@
   font-size: 18px;
   transition: all 0.3s ease 0s;
   &::placeholder {
-    color: var(--dark-grey);
+    color: var(--primary-black);
   }
   &:hover {
     box-shadow: var(--shadow-card-hover);
   }
   &:focus {
     box-shadow: var(--shadow-card-hover);
-  }
-}
-[data-theme='dark'] {
-  .input {
-    &::placeholder {
-      color: var(--white);
-    }
   }
 }
