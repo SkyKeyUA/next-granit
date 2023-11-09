@@ -28,6 +28,7 @@
   margin-bottom: 20px;
   path {
     transition: all 0.3s ease 0s;
+    fill: var(--primary-black);
   }
   &:hover {
     path {
@@ -49,9 +50,11 @@
     margin-right: 25px;
     span {
       transition: all 0.3s ease 0s;
+      color: var(--primary-black);
     }
     path {
       transition: all 0.3s ease 0s;
+      fill: var(--primary-black);
     }
     &:hover {
       path {
@@ -79,9 +82,11 @@
     font-weight: 600;
     span {
       transition: all 0.3s ease 0s;
+      color: var(--primary-black);
     }
     path {
       transition: all 0.3s ease 0s;
+      fill: var(--primary-black);
     }
     &:hover {
       path {
