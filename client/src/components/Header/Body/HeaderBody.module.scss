@@ -16,7 +16,6 @@
   font-style: italic;
   font-weight: 600;
   font-size: 32px;
-  color: var(--dark);
   white-space: nowrap;
   margin-right: 110px;
   @media (max-width: 1599.98px) {
@@ -24,6 +23,7 @@
   }
   path {
     transition: all 0.3s ease 0s;
+    fill: var(--primary-black);
   }
   &:hover {
     path {
@@ -52,6 +52,10 @@
   }
   span {
     transition: all 0.3s ease 0s;
+    color: var(--primary-black);
+  }
+  path {
+    fill: var(--primary-black);
   }
   &:hover {
     path {
@@ -71,6 +75,7 @@
   font-size: 27px;
   path {
     transition: all 0.3s ease 0s;
+    fill: var(--primary-black);
   }
   &:hover {
     path {
@@ -94,6 +99,7 @@
   white-space: nowrap;
   line-height: 1.2;
   transition: all 0.3s ease 0s;
+  color: var(--primary-black);
   &:hover {
     color: var(--orange);
   }

@@ -32,10 +32,14 @@
   --shadow-3xl: 0px 32px 64px -12px black;
   --shadow-focus: 0px 1px 2px rgba(16, 24, 40, 0.5), 0px 0px 0px 4px var(--primary);
   --shadow-error: 0px 1px 2px rgba(16, 24, 40, 0.5), 0px 0px 0px 4px var(--red);
+  --input-bg: rgba(7, 7, 7, 0.03);
 }
 
 [data-theme='dark'] {
-  --light-primary: #9c9999;
+  --light-primary: #575757;
   --body-color: #373737;
   --dark-grey: #1d1d1d;
+  --primary-black: #fff;
+  --input-bg: rgba(255, 255, 255, 0.2);
+  --shadow-card-hover: rgba(255, 255, 255, 0.2) 0px 5px 22px;
 }
