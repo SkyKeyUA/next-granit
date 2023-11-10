@@ -29,7 +29,7 @@
   right: 10px;
   transition: all 0.3s ease 0s;
   &:hover path:not(:first-child) {
-    fill: var(--light-primary);
+    fill: var(--orange);
   }
 }
 

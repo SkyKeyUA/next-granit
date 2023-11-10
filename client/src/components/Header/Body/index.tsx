@@ -38,9 +38,7 @@ export const HeaderBody = () => {
               <button
                 onClick={() => setOpenNumber(!openNumber)}
                 type="button"
-                className={`${styles.arrow} ${openNumber ? styles.arrow_open : ''}`}>
-                <SvgIcon src={IconsEnum.arrow} style={{ width: '16px', height: '10px' }} />
-              </button>
+                className={`${styles.arrow} ${openNumber ? styles.arrow_open : ''}`}></button>
               <ul className={`${styles.list} ${openNumber ? styles.list_open : ''}`}>
                 {phoneNumber.map((obj, index) => (
                   <li key={index}>
