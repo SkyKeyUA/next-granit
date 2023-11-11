@@ -2,6 +2,10 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { useAppDispatch } from '@hooks/redux';
+import { setCategoryId } from '@redux/reducers/filter/reducer';
+import { useSelector } from 'react-redux';
+import { useFilterSelector } from '@redux/reducers/filter/selectors';
 
 import styles from './Catalog.module.scss';
 
@@ -73,7 +77,12 @@ const categories = [
     ],
   },
 ];
-export const Catalog: React.FC<CatalogProps> = ({ categoryId, onClickCatalog }) => {
+export const Catalog: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const onClickCatalog = React.useCallback((idx: number) => {
+    dispatch(setCategoryId(idx));
+  }, []);
+  const { categoryId } = useFilterSelector();
   return (
     <div className={styles.inner}>
       <div className={styles.container}>

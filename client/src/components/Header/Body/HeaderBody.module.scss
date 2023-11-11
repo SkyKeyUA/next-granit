@@ -18,7 +18,7 @@
   white-space: nowrap;
   margin-right: 110px;
   @media (max-width: 1599.98px) {
-    margin-right: calc(15px + (110 - 15) * ((100vw - 320px) / (1920 - 320)));
+    margin-right: calc(-20px + (110 + 20) * ((100vw - 320px) / (1920 - 320)));
   }
   path {
     transition: all 0.3s ease 0s;
@@ -40,6 +40,9 @@
   display: flex;
   align-items: center;
   column-gap: 30px;
+  @media (max-width: 1599.98px) {
+    column-gap: calc(0px + (30 - 0) * ((100vw - 320px) / (1920 - 320)));
+  }
 }
 .location {
   display: inline-flex;
@@ -72,11 +75,24 @@
 
 .favourite {
   font-size: 27px;
+  position: relative;
   path {
     transition: all 0.3s ease 0s;
     fill: var(--primary-black);
   }
+  span {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: var(--primary-black);
+  }
   &:hover {
+    span {
+      color: var(--orange);
+    }
     path {
       fill: var(--orange);
     }

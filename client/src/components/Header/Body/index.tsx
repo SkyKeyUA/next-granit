@@ -52,6 +52,7 @@ export const HeaderBody = () => {
           </div>
           <Link href="/" className={styles.favourite}>
             <SvgIcon src={IconsEnum.favourite} style={{ width: '28px', height: '27px' }} />
+            <span>10</span>
           </Link>
           <SwitchThemeButton />
         </div>
