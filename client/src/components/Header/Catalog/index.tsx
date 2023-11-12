@@ -1,82 +1,16 @@
-/** @format */
-
-import Link from 'next/link';
 import React from 'react';
 import { useAppDispatch } from '@hooks/redux';
 import { setCategoryId } from '@redux/reducers/filter/reducer';
-import { useSelector } from 'react-redux';
 import { useFilterSelector } from '@redux/reducers/filter/selectors';
 
 import styles from './Catalog.module.scss';
+import dynamic from 'next/dynamic';
+import { categories } from './Catalog.constants';
 
-type CatalogProps = {
-  categoryId: number;
-  onClickCatalog: (i: number) => void;
-};
+export const DynamicCatalog = dynamic(() =>
+  import('@components/Header/Catalog').then((mod) => mod.Catalog),
+);
 
-const categories = [
-  {
-    id: 0,
-    menuCatalog: "Каталог пам'ятників",
-    submenuCatalog: [
-      "Всі Пам'ятники",
-      "Пам'ятники одинарні",
-      "Подвійні пам'ятники",
-      'Меморіальні комплекси',
-      "Ексклюзивні пам'ятники",
-      "Пам'ятники з хрестом",
-    ],
-  },
-  {
-    id: 1,
-    menuCatalog: 'Колір граніту',
-    submenuCatalog: [
-      "Пам'ятники одинарні",
-      "Подвійні пам'ятники",
-      'Меморіальні комплекси',
-      "Ексклюзивні пам'ятники",
-      "Дитячі пам'ятники",
-      "Пам'ятники тваринам",
-      "Пам'ятники з хрестом",
-    ],
-  },
-  {
-    id: 2,
-    menuCatalog: 'Наші вироби',
-    submenuCatalog: [
-      "Пам'ятники одинарні",
-      "Подвійні пам'ятники",
-      'Меморіальні комплекси',
-      "Ексклюзивні пам'ятники",
-      "Дитячі пам'ятники",
-      "Пам'ятники тваринам",
-      "Пам'ятники з хрестом",
-    ],
-  },
-  {
-    id: 3,
-    menuCatalog: 'Аксесуари',
-    submenuCatalog: [
-      "Пам'ятники одинарні",
-      "Подвійні пам'ятники",
-      'Меморіальні комплекси',
-      "Ексклюзивні пам'ятники",
-      "Дитячі пам'ятники",
-      "Пам'ятники тваринам",
-      "Пам'ятники з хрестом",
-    ],
-  },
-  {
-    id: 4,
-    menuCatalog: 'Послуги',
-    submenuCatalog: [
-      'Художні роботи',
-      "Установка пам'ятників",
-      'Установка комплекса',
-      'Монтажні роботи',
-    ],
-  },
-];
 export const Catalog: React.FC = () => {
   const dispatch = useAppDispatch();
   const onClickCatalog = React.useCallback((idx: number) => {

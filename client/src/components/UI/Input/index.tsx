@@ -1,4 +1,3 @@
-/** @format */
 import React from 'react';
 import debounce from 'lodash.debounce';
 import { setSearchValue } from '@redux/reducers/filter/reducer';

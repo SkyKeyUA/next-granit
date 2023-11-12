@@ -1,15 +1,10 @@
-/** @format */
-/** @format */
-
 import React from 'react';
 
 import styles from './HeaderTop.module.scss';
 import Link from 'next/link';
-import { Catalog } from '../Catalog';
 import { useResponsive } from '@hooks/useResponsive';
-import { DynamicCatalog } from '@utils/dynamicImport';
-
-const menuList = ['Про нас', 'Акції', 'Оплата та доставка', 'Контакти'];
+import { DynamicCatalog } from '../Catalog';
+import { menuList } from './HeaderTop.constants';
 
 export const HeaderTop: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
