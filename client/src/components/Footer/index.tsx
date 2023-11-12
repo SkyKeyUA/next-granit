@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
