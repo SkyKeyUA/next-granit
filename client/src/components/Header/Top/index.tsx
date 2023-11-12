@@ -6,11 +6,14 @@ import React from 'react';
 import styles from './HeaderTop.module.scss';
 import Link from 'next/link';
 import { Catalog } from '../Catalog';
+import { useResponsive } from '@hooks/useResponsive';
+import { DynamicCatalog } from '@utils/dynamicImport';
 
 const menuList = ['Про нас', 'Акції', 'Оплата та доставка', 'Контакти'];
 
 export const HeaderTop: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const { Tablet } = useResponsive();
   React.useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -29,9 +32,9 @@ export const HeaderTop: React.FC = () => {
           }>
           <span></span>
         </button>
-        <div className={styles['menu-body']}>
-          <Catalog />
-        </div>
+        <Tablet>
+          <DynamicCatalog />
+        </Tablet>
         <div className={styles.menu}>
           <nav className={styles.body}>
             <ul className={styles.list}>
