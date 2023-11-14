@@ -5,13 +5,9 @@ import { Input } from '@components/UI/Input';
 
 import styles from './HeaderBody.module.scss';
 import { SwitchThemeButton } from '@components/UI/Button';
+import { phoneNumber } from './HeaderBody.constants';
 
-const phoneNumber = [
-  { fullNumber: '+380669099669', shortNumber: '066-909-96-69' },
-  { fullNumber: '0459565728', shortNumber: ' 04595-6-57-28' },
-];
-
-export const HeaderBody = () => {
+export const HeaderBody: React.FC = () => {
   const [openNumber, setOpenNumber] = React.useState(false);
   return (
     <div className={styles.inner}>
