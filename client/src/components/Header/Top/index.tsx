@@ -31,8 +31,8 @@ export const HeaderTop: React.FC = () => {
           <DynamicCatalog />
         </Tablet>
         <div className={styles.menu}>
-          <nav className={styles.body}>
-            <ul className={styles.list}>
+          <nav className={styles.list}>
+            <ul className={styles.items}>
               {menuList.map((name, index) => (
                 <li key={index} className={styles.item}>
                   <Link href="/" className={styles.link}>
