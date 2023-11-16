@@ -30,7 +30,7 @@ export const HeaderTop: React.FC = () => {
         <Tablet>
           <DynamicCatalog />
         </Tablet>
-        <div className={styles.menu}>
+        <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
             <ul className={styles.items}>
               {menuList.map((name, index) => (
