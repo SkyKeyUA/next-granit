@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useResponsive } from '@hooks/useResponsive';
 import { DynamicCatalog } from '../Catalog';
 import { menuList } from './HeaderTop.constants';
+import { Hamburger } from '@components/UI/Hamburger';
 
 export const HeaderTop: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -19,14 +20,7 @@ export const HeaderTop: React.FC = () => {
   return (
     <div className={styles.inner}>
       <div className={styles.container}>
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          type="button"
-          className={
-            menuOpen ? `${styles['icon-menu']} ${styles['menu-open']}` : styles['icon-menu']
-          }>
-          <span></span>
-        </button>
+        <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Tablet>
           <DynamicCatalog />
         </Tablet>
