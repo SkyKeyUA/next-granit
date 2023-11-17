@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
-import { categories, phoneNumber } from './Footer.constants';
+import { categories, phoneNumbers } from './Footer.constants';
+import { PhoneNumbers } from '@components/UI/PhoneNumbers';
 
 export const Footer: React.FC = () => {
   return (
@@ -22,16 +23,7 @@ export const Footer: React.FC = () => {
                 <span>м. Бориспіль, вул. Січнева 40Б</span>
               </Link>
             </div>
-            <ul className={styles.phones}>
-              {phoneNumber.map((obj, index) => (
-                <li className={styles.phone} key={index}>
-                  <Link href={`tel:${obj.fullNumber}`}>
-                    <SvgIcon src={IconsEnum.phone} size={25} style={{ marginRight: '15px' }} />
-                    <span>{obj.shortNumber}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <PhoneNumbers phoneNumbers={phoneNumbers} icon={IconsEnum.phone} />
           </div>
           <div className={styles.inner}>
             <div className={styles.info}>

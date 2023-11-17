@@ -1,0 +1,30 @@
+.phones {
+}
+.phone {
+  white-space: nowrap;
+  a {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    transition: all 0.3s ease 0s;
+    color: var(--primary-black);
+    path {
+      transition: all 0.3s ease 0s;
+      fill: var(--primary-black);
+    }
+    &:hover {
+      text-decoration: underline;
+      color: var(--orange);
+      path {
+        fill: var(--orange);
+      }
+      &:active {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+      }
+    }
+  }
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
