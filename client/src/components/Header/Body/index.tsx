@@ -5,7 +5,8 @@ import { Input } from '@components/UI/Input';
 
 import styles from './HeaderBody.module.scss';
 import { SwitchThemeButton } from '@components/UI/Button';
-import { phoneNumber } from './HeaderBody.constants';
+import { phoneNumbers } from './HeaderBody.constants';
+import { DropDownNumbers } from '@components/UI/PhoneNumbers/DropDownNumbers';
 
 export const HeaderBody: React.FC = () => {
   const [openNumber, setOpenNumber] = React.useState(false);
@@ -24,26 +25,7 @@ export const HeaderBody: React.FC = () => {
             />
             <span>Бориспіль</span>
           </Link>
-          <div className={styles.phones}>
-            <div className={styles.items}>
-              <Link href="tel:+380675561977" className={styles.phone}>
-                067-556-19-77
-              </Link>
-              <button
-                onClick={() => setOpenNumber(!openNumber)}
-                type="button"
-                className={`${styles.arrow} ${openNumber ? styles.arrow_open : ''}`}></button>
-              <ul className={`${styles.list} ${openNumber ? styles.list_open : ''}`}>
-                {phoneNumber.map((obj, index) => (
-                  <li key={index}>
-                    <Link href={`tel:${obj.fullNumber}`} className={styles.phone}>
-                      {obj.shortNumber}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <DropDownNumbers phoneNumbers={phoneNumbers} />
           <Link href="/" className={styles.favourite}>
             <SvgIcon src={IconsEnum.favourite} style={{ width: '28px', height: '27px' }} />
             <span>10</span>
