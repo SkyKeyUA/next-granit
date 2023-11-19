@@ -1,5 +1,7 @@
 .search {
-  flex: 1 1 auto;
+  @media (min-width: 991.98px) {
+    flex: 1 1 auto;
+  }
 }
 .inner {
   max-width: 377px;

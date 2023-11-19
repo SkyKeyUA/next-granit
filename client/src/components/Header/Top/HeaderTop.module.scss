@@ -10,6 +10,9 @@
   gap: 20px;
   min-height: 50px;
   padding: 10px;
+  @media (max-width: 991.98px) {
+    justify-content: space-between;
+  }
 }
 
 .menu {
