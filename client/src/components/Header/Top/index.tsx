@@ -6,6 +6,7 @@ import { useResponsive } from '@hooks/useResponsive';
 import { DynamicCatalog } from '../Catalog';
 import { menuList } from './HeaderTop.constants';
 import { Hamburger } from '@components/UI/Hamburger';
+import { DynamicActions } from '@components/UI/Actions';
 
 export const HeaderTop: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -21,9 +22,11 @@ export const HeaderTop: React.FC = () => {
     <div className={styles.inner}>
       <div className={styles.container}>
         <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Tablet>
-          <DynamicCatalog />
-        </Tablet>
+        {menuOpen && (
+          <Tablet>
+            <DynamicCatalog />
+          </Tablet>
+        )}
         <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
             <ul className={styles.items}>
@@ -37,6 +40,9 @@ export const HeaderTop: React.FC = () => {
             </ul>
           </nav>
         </div>
+        <Tablet>
+          <DynamicActions />
+        </Tablet>
       </div>
     </div>
   );

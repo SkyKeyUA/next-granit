@@ -6,6 +6,9 @@
   min-height: 70px;
   align-items: center;
   padding: 10px;
+  @media (max-width: 991.98px) {
+    justify-content: space-between;
+  }
 }
 
 .logo {
@@ -14,9 +17,12 @@
   font-weight: 600;
   font-size: 32px;
   white-space: nowrap;
-  margin-right: 110px;
+  margin-right: 145px;
   @media (max-width: 1599.98px) {
-    margin-right: calc(-20px + (110 + 20) * ((100vw - 320px) / (1920 - 320)));
+    margin-right: calc(-120px + (210 + 120) * ((100vw - 320px) / (1920 - 320)));
+  }
+  @media (max-width: 991.98px) {
+    margin-right: 20px;
   }
   path {
     transition: all 0.3s ease 0s;
@@ -34,69 +40,3 @@
 }
 
 //========================================================================================================================================================
-.actions {
-  display: flex;
-  align-items: center;
-  column-gap: 30px;
-  @media (max-width: 1599.98px) {
-    column-gap: calc(0px + (30 - 0) * ((100vw - 320px) / (1920 - 320)));
-  }
-}
-.location {
-  display: inline-flex;
-  align-items: center;
-  font-weight: 600;
-  margin: 0px 25px;
-  path {
-    transition: all 0.3s ease 0s;
-  }
-  span {
-    transition: all 0.3s ease 0s;
-    color: var(--primary-black);
-  }
-  path {
-    fill: var(--primary-black);
-  }
-  &:hover {
-    path {
-      fill: var(--orange);
-    }
-    &:active {
-      -webkit-transform: translateY(1px);
-      transform: translateY(1px);
-    }
-    span {
-      color: var(--orange);
-    }
-  }
-}
-
-.favourite {
-  font-size: 27px;
-  position: relative;
-  path {
-    transition: all 0.3s ease 0s;
-    fill: var(--primary-black);
-  }
-  span {
-    transition: all 0.3s ease 0s;
-    position: absolute;
-    left: 48%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 10px;
-    color: var(--primary-black);
-  }
-  &:hover {
-    span {
-      color: var(--orange);
-    }
-    path {
-      fill: var(--orange);
-    }
-    &:active {
-      -webkit-transform: translateY(1px);
-      transform: translateY(1px);
-    }
-  }
-}
