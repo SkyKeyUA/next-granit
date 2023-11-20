@@ -5,12 +5,19 @@
   @media (max-width: 1599.98px) {
     column-gap: calc(0px + (30 - 0) * ((100vw - 320px) / (1920 - 320)));
   }
+  @media (max-width: 991.98px) {
+    column-gap: 15px;
+    flex-direction: row-reverse;
+  }
 }
 .location {
   display: inline-flex;
   align-items: center;
   font-weight: 600;
   margin: 0px 25px;
+  @media (max-width: 991.98px) {
+    margin: 0px 15px 0px 0px;
+  }
   path {
     transition: all 0.3s ease 0s;
   }
@@ -31,6 +38,14 @@
     }
     span {
       color: var(--orange);
+    }
+  }
+  @media (max-width: 991.98px) {
+    span {
+      color: var(--white);
+    }
+    path {
+      fill: var(--white);
     }
   }
 }
@@ -61,6 +76,14 @@
     &:active {
       -webkit-transform: translateY(1px);
       transform: translateY(1px);
+    }
+  }
+  @media (max-width: 991.98px) {
+    span {
+      color: var(--white);
+    }
+    path {
+      fill: var(--white);
     }
   }
 }

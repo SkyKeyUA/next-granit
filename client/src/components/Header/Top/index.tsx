@@ -21,7 +21,6 @@ export const HeaderTop: React.FC = () => {
   return (
     <div className={styles.inner}>
       <div className={styles.container}>
-        <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         {menuOpen && (
           <Tablet>
             <DynamicCatalog />
@@ -43,6 +42,7 @@ export const HeaderTop: React.FC = () => {
         <Tablet>
           <DynamicActions />
         </Tablet>
+        <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </div>
     </div>
   );
