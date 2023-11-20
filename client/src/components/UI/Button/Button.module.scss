@@ -21,7 +21,6 @@
       color: var(--primary-black);
       stroke: var(--white);
       transition: all 0.3s ease 0s;
-
       &:hover {
         background: var(--primary-black);
         color: var(--light-primary);
@@ -30,7 +29,15 @@
       &:active {
         background: var(--dark-primary);
       }
-
+      @media (max-width: 991.98px) {
+        border: 2px solid var(--primary);
+        background: var(--primary-black);
+        color: var(--light-primary);
+        &:hover {
+          background: var(--light-primary);
+          color: var(--primary-black);
+        }
+      }
       &.disabled {
         background: var(--light-grey);
       }
@@ -200,6 +207,14 @@
 
         &:active {
           background: var(--dark-primary);
+        }
+        @media (max-width: 991.98px) {
+          background: inherit;
+          &:hover {
+            background: var(--white);
+            stroke: var(--dark);
+            color: var(--dark);
+          }
         }
       }
     }
