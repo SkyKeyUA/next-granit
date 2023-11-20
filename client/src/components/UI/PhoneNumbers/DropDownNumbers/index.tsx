@@ -8,7 +8,9 @@ export const DropDownNumbers: React.FC<DropDownNumbersProps> = ({ phoneNumbers }
   const [openNumber, setOpenNumber] = React.useState(false);
   return phoneNumbers ? (
     <div className={styles.items}>
-      <Link href={`tel:${phoneNumbers.mainNumber.fullNumber}`} className={styles.phone}>
+      <Link
+        href={`tel:${phoneNumbers.mainNumber.fullNumber}`}
+        className={`${styles.phone} ${styles.mainNumber}`}>
         {phoneNumbers.mainNumber.shortNumber}
       </Link>
       <button

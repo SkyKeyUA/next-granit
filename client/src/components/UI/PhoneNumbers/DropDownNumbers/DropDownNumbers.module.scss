@@ -20,6 +20,11 @@
     transform: translateY(1px);
   }
 }
+.mainNumber {
+  @media (max-width: 991.98px) {
+    color: var(--white);
+  }
+}
 
 .arrow {
   border-left: 8px solid var(--body-color);
@@ -32,6 +37,10 @@
   }
   &_open {
     transform: rotate(-180deg);
+  }
+  @media (max-width: 991.98px) {
+    border-left: 8px solid var(--dark);
+    border-right: 8px solid var(--dark);
   }
 }
 
