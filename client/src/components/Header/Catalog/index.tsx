@@ -21,7 +21,7 @@ export const Catalog: React.FC = () => {
     <div className={styles.inner}>
       <div className={styles.container}>
         <nav className={styles.menu}>
-          <ul className={styles.list}>
+          <ul className={styles.items}>
             {categories.map(({ id, menuCatalog }) => (
               <li
                 onClick={() => onClickCatalog(id)}
