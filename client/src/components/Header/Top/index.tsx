@@ -29,13 +29,19 @@ export const HeaderTop: React.FC = () => {
         <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
             <ul className={styles.items}>
-              {menuList.map((name, index) => (
-                <li key={index} className={styles.item}>
-                  <Link href="/" className={styles.link}>
+              {menuList.map((name, index) =>
+                index === 0 ? (
+                  <li key={index} className={styles.item}>
                     {name}
-                  </Link>
-                </li>
-              ))}
+                  </li>
+                ) : (
+                  <li key={index} className={styles.item}>
+                    <Link href="/" className={styles.link}>
+                      {name}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </nav>
         </div>
