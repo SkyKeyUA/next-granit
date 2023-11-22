@@ -17,7 +17,6 @@
 
 .menu {
   flex: 1 1 auto;
-  z-index: 4;
   @media (max-width: 991.98px) {
     background-color: var(--dark);
     position: fixed;
@@ -82,16 +81,14 @@
     border-bottom: 1px solid var(--grey);
     padding: 20px;
     &:first-child {
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        &::after {
-          content: '';
-          border-bottom: 12px solid var(--dark);
-          border-top: 12px solid var(--dark);
-          border-left: 18px solid var(--orange);
-        }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &::after {
+        content: '';
+        border-bottom: 12px solid var(--dark);
+        border-top: 12px solid var(--dark);
+        border-left: 18px solid var(--orange);
       }
     }
   }
