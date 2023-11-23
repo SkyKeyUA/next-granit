@@ -7,9 +7,14 @@ import { DynamicCatalog } from '../Catalog';
 import { menuList } from './HeaderTop.constants';
 import { Hamburger } from '@components/UI/Hamburger';
 import { DynamicActions } from '@components/UI/Actions';
+import { useFilterSelector } from '@redux/reducers/filter/selectors';
+import { useAppDispatch } from '@hooks/redux';
+import { setCategoryToggle } from '@redux/reducers/filter/reducer';
 
 export const HeaderTop: React.FC = () => {
+  const dispatch = useAppDispatch();
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const { categoryToggle } = useFilterSelector();
   const { Tablet } = useResponsive();
   React.useEffect(() => {
     if (menuOpen) {
@@ -21,17 +26,18 @@ export const HeaderTop: React.FC = () => {
   return (
     <div className={styles.inner}>
       <div className={styles.container}>
-        {menuOpen && (
-          <Tablet>
-            <DynamicCatalog />
-          </Tablet>
-        )}
+        <Tablet>
+          <DynamicCatalog />
+        </Tablet>
         <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
             <ul className={styles.items}>
               {menuList.map((name, index) =>
                 index === 0 ? (
-                  <li key={index} className={`${styles.item} ${styles.item_catalog}`}>
+                  <li
+                    onClick={() => dispatch(setCategoryToggle(!categoryToggle))}
+                    key={index}
+                    className={`${styles.item} ${styles.item_catalog}`}>
                     {name}
                   </li>
                 ) : (

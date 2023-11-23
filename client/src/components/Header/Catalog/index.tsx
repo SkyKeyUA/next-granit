@@ -16,9 +16,9 @@ export const Catalog: React.FC = () => {
   const onClickCatalog = React.useCallback((idx: number) => {
     dispatch(setCategoryId(idx));
   }, []);
-  const { categoryId } = useFilterSelector();
+  const { categoryId, categoryToggle } = useFilterSelector();
   return (
-    <div className={styles.inner}>
+    <div className={`${styles.inner} ${categoryToggle ? `${styles.inner_open}` : ''}`}>
       <div className={styles.container}>
         <nav className={styles.menu}>
           <ul className={styles.items}>
