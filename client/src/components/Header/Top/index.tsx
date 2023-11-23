@@ -31,7 +31,7 @@ export const HeaderTop: React.FC = () => {
             <ul className={styles.items}>
               {menuList.map((name, index) =>
                 index === 0 ? (
-                  <li key={index} className={styles.item}>
+                  <li key={index} className={`${styles.item} ${styles.item_catalog}`}>
                     {name}
                   </li>
                 ) : (
