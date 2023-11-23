@@ -80,16 +80,16 @@
   .item {
     border-bottom: 1px solid var(--grey);
     padding: 20px;
-    &:first-child {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      &::after {
-        content: '';
-        border-bottom: 12px solid var(--dark);
-        border-top: 12px solid var(--dark);
-        border-left: 18px solid var(--orange);
-      }
+  }
+  .item_catalog {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &::after {
+      content: '';
+      border-bottom: 12px solid var(--dark);
+      border-top: 12px solid var(--dark);
+      border-left: 18px solid var(--orange);
     }
   }
 }
@@ -99,9 +99,7 @@
     flex-wrap: wrap;
   }
 
-  .item {
-    &:first-child {
-      display: none;
-    }
+  .item_catalog {
+    display: none;
   }
 }
