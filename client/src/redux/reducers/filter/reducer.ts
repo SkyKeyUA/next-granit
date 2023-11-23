@@ -5,6 +5,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 const initialState: FilterSliceState = {
   categoryId: 0,
   searchValue: '',
+  categoryToggle: false,
 };
 
 export const filterReducer = createSlice({
@@ -13,6 +14,9 @@ export const filterReducer = createSlice({
   reducers: {
     setCategoryId(state, action: PayloadAction<number>) {
       state.categoryId = action.payload;
+    },
+    setCategoryToggle(state, action: PayloadAction<boolean>) {
+      state.categoryToggle = action.payload;
     },
     setSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
@@ -28,6 +32,6 @@ export const filterReducer = createSlice({
   },
 });
 
-export const { setCategoryId, setSearchValue } = filterReducer.actions;
+export const { setCategoryId, setSearchValue, setCategoryToggle } = filterReducer.actions;
 
 export default filterReducer.reducer;
