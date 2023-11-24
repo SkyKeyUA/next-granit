@@ -2,4 +2,8 @@
   border-radius: 50%;
   width: 36px;
   height: 36px;
+  @media (max-width: 479.98px) {
+    width: 30px;
+    height: 30px;
+  }
 }

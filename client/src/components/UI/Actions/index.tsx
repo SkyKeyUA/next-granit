@@ -17,8 +17,9 @@ export const Actions: React.FC = () => {
     <div className={styles.actions}>
       <Link href="/" className={styles.location}>
         <SvgIcon
+          className={styles.svg}
           src={IconsEnum.location}
-          style={{ height: '25px', width: '17', marginRight: '15px' }}
+          style={{ height: '25px', width: '17' }}
         />
         <span>Бориспіль</span>
       </Link>
