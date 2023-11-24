@@ -55,6 +55,11 @@
   font-size: 20px;
   font-weight: 900;
   margin: 20px 40px;
+  line-height: 1.2;
+  @media (max-width: 479.98px) {
+    margin: 10px;
+    font-size: 18px;
+  }
 }
 
 .title {

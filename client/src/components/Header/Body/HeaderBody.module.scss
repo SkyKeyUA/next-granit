@@ -2,10 +2,15 @@
 .inner {
 }
 .container {
-  display: flex;
-  min-height: 70px;
   align-items: center;
   padding: 10px;
+  @media (min-width: 599.98px) {
+    display: flex;
+    min-height: 70px;
+  }
+  @media (max-width: 599.98px) {
+    text-align: center;
+  }
 }
 
 .logo {
@@ -15,12 +20,6 @@
   font-size: 32px;
   white-space: nowrap;
   margin-right: 145px;
-  @media (max-width: 1599.98px) {
-    margin-right: calc(-120px + (210 + 120) * ((100vw - 320px) / (1920 - 320)));
-  }
-  @media (max-width: 991.98px) {
-    margin-right: 20px;
-  }
   path {
     transition: all 0.3s ease 0s;
     fill: var(--primary-black);
@@ -33,6 +32,15 @@
   &:active {
     -webkit-transform: translateY(1px);
     transform: translateY(1px);
+  }
+  @media (max-width: 1599.98px) {
+    margin-right: calc(-120px + (210 + 120) * ((100vw - 320px) / (1920 - 320)));
+  }
+  @media (max-width: 991.98px) {
+    margin-right: 20px;
+  }
+  @media (max-width: 599.98px) {
+    margin: 10px 0px 20px 0px;
   }
 }
 
