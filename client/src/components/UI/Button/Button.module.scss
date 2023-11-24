@@ -131,6 +131,9 @@
     &_md {
       height: 40px;
       padding: 0 16px;
+      @media (max-width: 479.98px) {
+        padding: 0 10px;
+      }
     }
 
     &_lg {
