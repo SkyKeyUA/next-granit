@@ -7,15 +7,11 @@ import { DynamicCatalog } from '../Catalog';
 import { menuList } from './HeaderTop.constants';
 import { Hamburger } from '@components/UI/Hamburger';
 import { DynamicActions } from '@components/UI/Actions';
-import { useFilterSelector } from '@redux/reducers/filter/selectors';
-import { useAppDispatch } from '@hooks/redux';
-import { setCategoryToggle } from '@redux/reducers/filter/reducer';
 
 export const HeaderTop: React.FC = () => {
-  const dispatch = useAppDispatch();
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const { categoryToggle } = useFilterSelector();
   const { Tablet } = useResponsive();
+  const [categoryToggle, setCategoryToggle] = React.useState(false);
   React.useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -27,7 +23,7 @@ export const HeaderTop: React.FC = () => {
     <div className={styles.inner}>
       <div className={styles.container}>
         <Tablet>
-          <DynamicCatalog />
+          <DynamicCatalog categoryToggle={categoryToggle} />
         </Tablet>
         <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
@@ -35,7 +31,7 @@ export const HeaderTop: React.FC = () => {
               {menuList.map((name, index) =>
                 index === 0 ? (
                   <li
-                    onClick={() => dispatch(setCategoryToggle(!categoryToggle))}
+                    onClick={() => setCategoryToggle(!categoryToggle)}
                     key={index}
                     className={`${styles.item} ${styles.item_catalog}`}>
                     {name}
@@ -54,7 +50,11 @@ export const HeaderTop: React.FC = () => {
         <Tablet>
           <DynamicActions />
         </Tablet>
-        <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Hamburger
+          setCategoryToggle={setCategoryToggle}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
       </div>
     </div>
   );

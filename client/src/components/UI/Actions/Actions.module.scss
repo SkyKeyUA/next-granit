@@ -15,16 +15,13 @@
   align-items: center;
   font-weight: 600;
   margin: 0px 25px;
-  @media (max-width: 991.98px) {
-    margin: 0px 15px 0px 0px;
-  }
   path {
     transition: all 0.3s ease 0s;
-    fill: var(--white);
+    fill: var(--primary-black);
   }
   span {
     transition: all 0.3s ease 0s;
-    color: var(--white);
+    color: var(--primary-black);
   }
   &:hover {
     path {
@@ -36,6 +33,15 @@
     }
     span {
       color: var(--orange);
+    }
+  }
+  @media (max-width: 991.98px) {
+    margin: 0px 15px 0px 0px;
+    span {
+      color: var(--white);
+    }
+    path {
+      fill: var(--white);
     }
   }
   @media (max-width: 479.98px) {
