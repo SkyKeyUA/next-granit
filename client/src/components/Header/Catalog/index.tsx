@@ -14,11 +14,12 @@ export const DynamicCatalog = dynamic(() =>
 
 export const Catalog: React.FC<CatalogProps> = ({ categoryToggle }) => {
   const dispatch = useAppDispatch();
-  const onClickCatalog = React.useCallback((idx: number) => {
-    dispatch(setCategoryId(idx));
-  }, []);
   const { categoryId } = useFilterSelector();
   const [submenuCatalogToggle, setSubmenuCatalogToggle] = React.useState(false);
+  const onClickCatalog = React.useCallback((idx: number) => {
+    dispatch(setCategoryId(idx));
+    setSubmenuCatalogToggle(!submenuCatalogToggle);
+  }, []);
   return (
     <div className={`${styles.inner} ${categoryToggle ? `${styles.inner_open}` : ''}`}>
       <div className={styles.container}>
@@ -26,7 +27,7 @@ export const Catalog: React.FC<CatalogProps> = ({ categoryToggle }) => {
           <ul className={styles.items}>
             {categories.map(({ id, menuCatalog }) => (
               <li
-                onClick={() => (onClickCatalog(id), setSubmenuCatalogToggle(!submenuCatalogToggle))}
+                onClick={() => onClickCatalog(id)}
                 key={id}
                 className={`${styles.item} ${categoryId === id ? `${styles.item_open}` : ''}`}>
                 {menuCatalog}
