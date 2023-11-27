@@ -7,12 +7,15 @@ import styles from './Catalog.module.scss';
 import dynamic from 'next/dynamic';
 import { categories } from './Catalog.constants';
 import { CatalogProps } from './Catalog.type';
+import { DynamicBackButton } from '@components/UI/Button/BackButton';
+import { useResponsive } from '@hooks/useResponsive';
 
 export const DynamicCatalog = dynamic(() =>
   import('@components/Header/Catalog').then((mod) => mod.Catalog),
 );
 
-export const Catalog: React.FC<CatalogProps> = ({ categoryToggle }) => {
+export const Catalog: React.FC<CatalogProps> = ({ setCategoryToggle, categoryToggle }) => {
+  const { Tablet } = useResponsive();
   const dispatch = useAppDispatch();
   const { categoryId } = useFilterSelector();
   const [submenuCatalogToggle, setSubmenuCatalogToggle] = React.useState(false);
@@ -24,6 +27,9 @@ export const Catalog: React.FC<CatalogProps> = ({ categoryToggle }) => {
     <div className={`${styles.inner} ${categoryToggle ? `${styles.inner_open}` : ''}`}>
       <div className={styles.container}>
         <nav className={styles.menu}>
+          <Tablet>
+            <DynamicBackButton onClick={() => setCategoryToggle(false)} />
+          </Tablet>
           <ul className={styles.items}>
             {categories.map(({ id, menuCatalog }) => (
               <li
@@ -35,16 +41,21 @@ export const Catalog: React.FC<CatalogProps> = ({ categoryToggle }) => {
             ))}
           </ul>
           {categories[categoryId].submenuCatalog && (
-            <ul
-              className={`${styles.sub_items} ${
-                submenuCatalogToggle ? `${styles.sub_items_open}` : ''
+            <div
+              className={`${styles.sub_body} ${
+                submenuCatalogToggle ? `${styles.sub_body_open}` : ''
               }`}>
-              {categories[categoryId].submenuCatalog?.map((obj, index) => (
-                <li key={index} className={styles.sub_item}>
-                  {obj}
-                </li>
-              ))}
-            </ul>
+              <Tablet>
+                <DynamicBackButton onClick={() => setSubmenuCatalogToggle(false)} />
+              </Tablet>
+              <ul className={styles.sub_items}>
+                {categories[categoryId].submenuCatalog?.map((obj, index) => (
+                  <li key={index} className={styles.sub_item}>
+                    {obj}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </nav>
       </div>

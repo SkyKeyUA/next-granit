@@ -16,6 +16,7 @@ export enum IconsEnum {
   loader = 'img/icons/loader.svg',
   moon = 'img/icons/moon.svg',
   sun = 'img/icons/sun.svg',
+  back = 'img/icons/back.svg',
 }
 
 export type SvgIconProps = {

@@ -23,7 +23,7 @@ export const HeaderTop: React.FC = () => {
     <div className={styles.inner}>
       <div className={styles.container}>
         <Tablet>
-          <DynamicCatalog categoryToggle={categoryToggle} />
+          <DynamicCatalog setCategoryToggle={setCategoryToggle} categoryToggle={categoryToggle} />
         </Tablet>
         <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
