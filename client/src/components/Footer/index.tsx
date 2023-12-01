@@ -4,9 +4,13 @@ import Link from 'next/link';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
 import { categories, phoneNumbers } from './Footer.constants';
 import { PhoneNumbers } from '@components/UI/PhoneNumbers';
+import { DynamicAccordion } from '@components/Common/Accordion';
+import { useResponsive } from '@hooks/useResponsive';
+import { DynamiFooterCategories } from './Categories';
 
 export const Footer: React.FC = () => {
-  const [infoToggle, setInfoToggle] = React.useState({});
+  const [active, setActive] = React.useState([false, false, false, false, false]);
+  const { CustomResponsive, ToCustomResponsive } = useResponsive();
   return (
     <footer className={styles.root}>
       <div className={styles.container}>
@@ -26,22 +30,27 @@ export const Footer: React.FC = () => {
             </div>
             <PhoneNumbers phoneNumbers={phoneNumbers} icon={IconsEnum.phone} />
           </div>
-          {categories.map((obj) => (
-            <div key={obj.id} className={styles.list}>
-              <div
-                onClick={() => setInfoToggle(obj.id)}
-                className={`${styles.label} ${infoToggle === obj.id ? styles.label_open : ''}`}>
-                {obj.menuCatalog}
-              </div>
-              <ul className={`${styles.items} ${infoToggle === obj.id ? styles.items_open : ''}`}>
-                {obj.submenuCatalog.map((subMenu, i) => (
-                  <li className={styles.item} key={i}>
-                    {subMenu}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ToCustomResponsive>
+            {categories.map((obj) => (
+              <DynamiFooterCategories
+                key={obj.id}
+                title={obj.menuCatalog}
+                subtitle={obj.submenuCatalog}
+              />
+            ))}
+          </ToCustomResponsive>
+          <CustomResponsive>
+            {categories.map((obj) => (
+              <DynamicAccordion
+                key={obj.id}
+                idx={obj.id}
+                turn={active}
+                setTurn={setActive}
+                title={obj.menuCatalog}
+                subtitle={obj.submenuCatalog}
+              />
+            ))}
+          </CustomResponsive>
         </div>
       </div>
     </footer>
