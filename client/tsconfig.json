@@ -29,8 +29,9 @@
       "@redux/*": ["./src/redux/*"],
       "@services/*": ["./src/services/*"],
       "@styles/*": ["./src/styles/*"],
-      "@typings/*": ["./src/types/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@customTypes/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@reducers/*": ["./src/redux/reducers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
