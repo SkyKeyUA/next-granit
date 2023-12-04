@@ -5,6 +5,8 @@ import { HYDRATE } from 'next-redux-wrapper';
 const initialState: FilterSliceState = {
   categoryId: 0,
   searchValue: '',
+  totalPages: 0,
+  currentPage: 1,
 };
 
 export const filterReducer = createSlice({
@@ -17,6 +19,17 @@ export const filterReducer = createSlice({
     setSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
+    setCurrentPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
+    setTotalPages(state, action: PayloadAction<number>) {
+      state.totalPages = action.payload;
+    },
+    setFilters(state, action: PayloadAction<FilterSliceState>) {
+      state.categoryId = action.payload.categoryId;
+      state.currentPage = action.payload.currentPage;
+      state.totalPages = action.payload.totalPages;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(HYDRATE, (state, action: AnyAction) => {
@@ -28,6 +41,7 @@ export const filterReducer = createSlice({
   },
 });
 
-export const { setCategoryId, setSearchValue } = filterReducer.actions;
+export const { setCategoryId, setSearchValue, setTotalPages, setCurrentPage } =
+  filterReducer.actions;
 
 export default filterReducer.reducer;
