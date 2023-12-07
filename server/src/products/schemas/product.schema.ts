@@ -12,10 +12,13 @@ export class Product {
   title: string;
 
   @Prop()
-  text: string;
+  id: string;
 
   @Prop()
-  user: mongoose.Schema.Types.ObjectId;
+  subcatalog_id: string;
+
+  @Prop()
+  role: mongoose.Schema.Types.ObjectId;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
