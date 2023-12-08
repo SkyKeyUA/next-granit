@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch } from '@hooks/redux';
-import { setCategoryId } from '@redux/reducers/filter/reducer';
+import { setCategoryId, setSubCategoryId } from '@redux/reducers/filter/reducer';
 import { useFilterSelector } from '@redux/reducers/filter/selectors';
 
 import styles from './Catalog.module.scss';
@@ -19,10 +19,14 @@ export const Catalog: React.FC<CatalogProps> = ({ setCategoryToggle, categoryTog
   const dispatch = useAppDispatch();
   const { categoryId } = useFilterSelector();
   const [submenuCatalogToggle, setSubmenuCatalogToggle] = React.useState(false);
-  const onClickCatalog = React.useCallback((idx: number) => {
+  const onClickCatalog = (idx: number) => {
     dispatch(setCategoryId(idx));
     setSubmenuCatalogToggle(!submenuCatalogToggle);
-  }, []);
+  };
+  const onClickSunCatalog = (idx: number) => {
+    dispatch(setSubCategoryId(idx));
+    console.log(idx);
+  };
   return (
     <div className={`${styles.inner} ${categoryToggle ? `${styles.inner_open}` : ''}`}>
       <div className={styles.container}>
@@ -50,7 +54,10 @@ export const Catalog: React.FC<CatalogProps> = ({ setCategoryToggle, categoryTog
               </Tablet>
               <ul className={styles.sub_items}>
                 {categories[categoryId].submenuCatalog?.map((obj, index) => (
-                  <li key={index} className={styles.sub_item}>
+                  <li
+                    key={index}
+                    onClick={() => onClickSunCatalog(index)}
+                    className={styles.sub_item}>
                     {obj}
                   </li>
                 ))}
