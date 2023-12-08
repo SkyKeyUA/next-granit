@@ -4,6 +4,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState: FilterSliceState = {
   categoryId: 0,
+  subCategoryId: 0,
   searchValue: '',
   totalPages: 0,
   currentPage: 1,
@@ -15,6 +16,9 @@ export const filterReducer = createSlice({
   reducers: {
     setCategoryId(state, action: PayloadAction<number>) {
       state.categoryId = action.payload;
+    },
+    setSubCategoryId(state, action: PayloadAction<number>) {
+      state.subCategoryId = action.payload;
     },
     setSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
@@ -41,7 +45,7 @@ export const filterReducer = createSlice({
   },
 });
 
-export const { setCategoryId, setSearchValue, setTotalPages, setCurrentPage } =
+export const { setCategoryId, setSearchValue, setTotalPages, setCurrentPage, setSubCategoryId } =
   filterReducer.actions;
 
 export default filterReducer.reducer;
