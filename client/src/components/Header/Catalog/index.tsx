@@ -23,9 +23,8 @@ export const Catalog: React.FC<CatalogProps> = ({ setCategoryToggle, categoryTog
     dispatch(setCategoryId(idx));
     setSubmenuCatalogToggle(!submenuCatalogToggle);
   };
-  const onClickSunCatalog = (idx: number) => {
+  const onClickSubCatalog = (idx: number) => {
     dispatch(setSubCategoryId(idx));
-    console.log(idx);
   };
   return (
     <div className={`${styles.inner} ${categoryToggle ? `${styles.inner_open}` : ''}`}>
@@ -56,7 +55,7 @@ export const Catalog: React.FC<CatalogProps> = ({ setCategoryToggle, categoryTog
                 {categories[categoryId].submenuCatalog?.map((obj, index) => (
                   <li
                     key={index}
-                    onClick={() => onClickSunCatalog(index)}
+                    onClick={() => onClickSubCatalog(index)}
                     className={styles.sub_item}>
                     {obj}
                   </li>
