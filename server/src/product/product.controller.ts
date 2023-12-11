@@ -1,0 +1,33 @@
+import {
+  Controller,
+  Post,
+  UseInterceptors,
+  UploadedFiles,
+  Body,
+  Query,
+  Get,
+} from '@nestjs/common';
+import { ProductService } from './product.service';
+import { CreateProductDto } from './dto/create-product.dto';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
+
+@Controller('/products')
+export class ProductController {
+  constructor(private productService: ProductService) {}
+
+  @Post()
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'picture', maxCount: 1 }]))
+  create(
+    @UploadedFiles()
+    files: { picture?: Express.Multer.File[] },
+    @Body() dto: CreateProductDto,
+  ) {
+    const { picture } = files;
+    return this.productService.create(dto, picture[0]);
+  }
+
+  @Get()
+  getAll(@Query('count') count: number, @Query('offset') offset: number) {
+    return this.productService.getAll(count, offset);
+  }
+}
