@@ -6,10 +6,14 @@ import {
   Body,
   Query,
   Get,
+  Param,
+  Patch,
+  Delete,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
+import { ObjectId } from 'mongodb';
 
 @Controller('/products')
 export class ProductController {
@@ -29,5 +33,18 @@ export class ProductController {
   @Get()
   getAll(@Query('count') count: number, @Query('offset') offset: number) {
     return this.productService.getAll(count, offset);
+  }
+
+  @Get(':id')
+  getOne(@Param('id') id: ObjectId) {
+    return this.productService.getOne(id);
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id') id: ObjectId,
+    @Body() updateData: Partial<CreateProductDto>,
+  ) {
+    return this.productService.update(id, updateData);
   }
 }
