@@ -38,6 +38,6 @@ export class ProductService {
 
   async delete(id: ObjectId) {
     const product = await this.productModel.findByIdAndDelete(id);
-    return product._id;
+    return product;
   }
 }
