@@ -1,5 +1,7 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
+import { BanUser } from './banUser.schemas';
+import { Role } from 'src/roles/schemas/role.schemas';
 
 export type UserDocument = HydratedDocument<User>;
 
@@ -14,11 +16,11 @@ export class User {
   @Prop({ defaultValue: 'USER' })
   role: string;
 
-  @Prop({ defaultValue: false })
-  banned: boolean;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'BanUser' })
+  banUser: BanUser;
 
-  @Prop({ allowNull: true })
-  banReason: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'UserRole' })
+  roles: Role[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
