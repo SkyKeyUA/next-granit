@@ -6,10 +6,10 @@ export type RoleDocument = HydratedDocument<Role>;
 
 @Schema()
 export class Role {
-  @Prop({ unique: true })
+  @Prop({ unique: true, allowNull: false })
   value: string;
 
-  @Prop()
+  @Prop({ allowNull: false })
   description: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'UserRole' })
