@@ -6,6 +6,7 @@ import { BanUser, BanUserSchema } from './schemas/banUser.schemas';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Role, RoleSchema } from 'src/roles/schemas/role.schemas';
 import { UserRole, UserRoleSchema } from 'src/roles/schemas/user-role.schemas';
+import { RolesModule } from 'src/roles/roles.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { UserRole, UserRoleSchema } from 'src/roles/schemas/user-role.schemas';
     MongooseModule.forFeature([
       { name: UserRole.name, schema: UserRoleSchema },
     ]),
+    RolesModule,
   ],
   controllers: [UsersController],
   providers: [UsersService],
