@@ -13,13 +13,10 @@ export class User {
   @Prop()
   password: string;
 
-  @Prop({ defaultValue: 'USER' })
-  role: string;
-
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'BanUser' })
   banUser: BanUser;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'UserRole' })
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Role' }] })
   roles: Role[];
 }
 
