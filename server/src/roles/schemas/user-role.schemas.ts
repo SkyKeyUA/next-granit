@@ -5,10 +5,10 @@ export type UserRoleDocument = HydratedDocument<UserRole>;
 
 @Schema()
 export class UserRole {
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Role' })
+  @Prop({ type: Types.ObjectId, ref: 'Role' })
   roleId: Types.ObjectId;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  @Prop({ type: Types.ObjectId, ref: 'User' })
   userId: Types.ObjectId;
 }
 
