@@ -27,10 +27,7 @@ export class UsersService {
   }
 
   async getByEmail(email: string) {
-    const user = await this.usersModule.findOne({
-      where: { email },
-      include: { all: true },
-    });
+    const user = this.usersModule.findOne({ email });
     return user;
   }
 
