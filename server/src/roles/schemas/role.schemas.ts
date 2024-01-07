@@ -14,6 +14,8 @@ export class Role {
 
   @Prop({ type: [{ type: Types.ObjectId, ref: 'UserRole' }] })
   userRoles: UserRole[];
+
+  _id: Types.ObjectId;
 }
 
 export const RoleSchema = SchemaFactory.createForClass(Role);

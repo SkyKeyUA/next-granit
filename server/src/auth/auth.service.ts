@@ -37,7 +37,11 @@ export class AuthService {
     const payload = {
       email: user.email,
       id: user._id,
-      roles: user.roles,
+      roles: user.roles.map((role) => ({
+        _id: role._id,
+        value: role.value,
+        description: role.description,
+      })),
       banned: user.banUser,
     };
     return {

@@ -15,10 +15,9 @@ export class UsersService {
 
   async create(dto: CreateUserDto): Promise<User> {
     const user = await this.usersModule.create(dto);
-    const role = await this.roleService.getByValue('USER');
-    user.roles = [role.id];
-    await user.save();
-    return user;
+    const role = await this.roleService.getByValue('ADMIN');
+    user.roles = [role];
+    return user.save();
   }
 
   async getAll() {
