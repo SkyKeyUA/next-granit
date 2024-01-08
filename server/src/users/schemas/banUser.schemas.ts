@@ -1,5 +1,5 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 import { User } from './user.schemas';
 
 export type BanUserDocument = HydratedDocument<BanUser>;
@@ -12,7 +12,7 @@ export class BanUser {
   @Prop({ allowNull: true })
   banReason: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  @Prop({ type: Types.ObjectId, ref: 'User' })
   user: User;
 }
 
