@@ -14,14 +14,13 @@ export class UsersService {
   ) {}
 
   async create(dto: CreateUserDto): Promise<User> {
-    const user = await this.usersModule.create(dto);
     const role = await this.roleService.getByValue('ADMIN');
-    user.roles = [role];
-    return user.save();
+    const user = await this.usersModule.create({ ...dto, roles: role });
+    return user;
   }
 
   async getAll() {
-    const users = await this.usersModule.find().populate('roles');
+    const users = await this.usersModule.find();
     return users;
   }
 
