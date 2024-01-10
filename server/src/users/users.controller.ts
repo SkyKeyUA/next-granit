@@ -10,12 +10,12 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { AuthGuard } from 'src/auth/jwt-auth.guard';
+import { ObjectId } from 'mongoose';
 import { Roles } from 'src/auth/roles-auth.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { AddRoleDto } from './dto/add-role.dto';
 import { BanUserDto } from './dto/ban-user.dto';
+import { CreateRoleDto } from 'src/roles/dto/create-role.dto';
 
 @Controller('users')
 export class UsersController {
@@ -35,6 +35,27 @@ export class UsersController {
 
   @Roles('ADMIN')
   @UseGuards(RolesGuard)
+  @Get(':id')
+  findOne(@Param('id') id: ObjectId) {
+    return this.usersService.findOne(id);
+  }
+
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
+  @Patch(':id')
+  update(@Param('id') id: ObjectId, @Body() updateUserDto: CreateUserDto) {
+    return this.usersService.update(id, updateUserDto);
+  }
+
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
+  @Delete(':id')
+  delete(@Param('id') id: ObjectId) {
+    return this.usersService.delete(id);
+  }
+
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
   @Post('/role')
   addRole(@Body() dto: AddRoleDto) {
     return this.usersService.addRole(dto);
@@ -45,20 +66,5 @@ export class UsersController {
   @Post('/ban')
   banUser(@Body() dto: BanUserDto) {
     return this.usersService.banUser(dto);
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
   }
 }
