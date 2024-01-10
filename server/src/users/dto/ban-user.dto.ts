@@ -1,8 +1,6 @@
-import { ObjectId } from 'mongodb';
-
 class BanUserDto {
   readonly banReason: string;
-  readonly userId: ObjectId;
+  readonly userId: number;
 }
 
 export { BanUserDto };
