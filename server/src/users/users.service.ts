@@ -27,7 +27,10 @@ export class UsersService {
 
   async findOne(id: ObjectId): Promise<User> {
     const user = await this.usersModule.findById(id);
-    return user;
+    if (user) {
+      return user;
+    }
+    throw new HttpException('User is not found', HttpStatus.NOT_FOUND);
   }
 
   async update(id: ObjectId, updateUserDto: Partial<CreateUserDto>) {
@@ -49,8 +52,7 @@ export class UsersService {
     const user = await this.usersModule.findById(dto.userId);
     const role = await this.roleService.getByValue(dto.value);
     if (role && user) {
-      await user.roles.push(role);
-      console.log(user);
+      user.roles.push(role);
       return user;
     }
     throw new HttpException('User or Role is not found', HttpStatus.NOT_FOUND);
