@@ -47,4 +47,9 @@ export class ProductController {
   ) {
     return this.productService.update(id, updateData);
   }
+
+  @Delete(':id')
+  delete(@Param('id') id: ObjectId) {
+    return this.productService.delete(id);
+  }
 }
