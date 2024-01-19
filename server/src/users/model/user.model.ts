@@ -34,7 +34,7 @@ export class User extends Model<User, UserCreationAttrs> {
     type: DataType.STRING,
     allowNull: false,
   })
-  password: boolean;
+  password: string;
 
   @Column({
     type: DataType.BOOLEAN,

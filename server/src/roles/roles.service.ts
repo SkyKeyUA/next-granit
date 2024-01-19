@@ -1,19 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { Role } from './schemas/role.schemas';
 import { CreateRoleDto } from './dto/create-role.dto';
+import { InjectModel } from '@nestjs/sequelize';
+import { Role } from './model/roles.model';
 
 @Injectable()
 export class RolesService {
-  constructor(@InjectModel(Role.name) private rolesModule: Model<Role>) {}
+  constructor(@InjectModel(Role) private roleModel: typeof Role) {}
   async create(dto: CreateRoleDto): Promise<Role> {
-    const role = await this.rolesModule.create(dto);
+    const role = await this.roleModel.create(dto);
     return role;
   }
 
   async getByValue(value: string) {
-    const role = await this.rolesModule.findOne({ value });
+    const role = await this.roleModel.findOne({ where: { value } });
     return role;
   }
 }
