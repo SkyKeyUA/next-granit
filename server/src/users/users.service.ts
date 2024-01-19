@@ -9,23 +9,29 @@ import { InjectModel } from '@nestjs/sequelize';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectModel(User) private userRepository: typeof User,
+    @InjectModel(User) private userModel: typeof User,
     private roleService: RolesService,
   ) {}
 
   async create(dto: CreateUserDto): Promise<User> {
+    const user = await this.userModel.create(dto);
     const role = await this.roleService.getByValue('USER');
-    const user = await this.userRepository.create(dto);
+    await user.$set('roles', [role.id]);
+    user.roles = [role];
     return user;
   }
 
   async getAll(): Promise<User[]> {
-    const users = await this.userRepository.findAll();
+    const users = await this.userModel.findAll({ include: { all: true } });
     return users;
   }
 
   async findOne(id: number): Promise<User> {
-    const user = await this.userRepository.findById(id);
+    const user = await this.userModel.findOne({
+      where: {
+        id,
+      },
+    });
     if (user) {
       return user;
     }
@@ -33,29 +39,29 @@ export class UsersService {
   }
 
   async update(id: number, updateUserDto: Partial<CreateUserDto>) {
-    const user = await this.userRepository.updateOne(
-      { _id: id },
-      updateUserDto,
-    );
+    const user = await this.userModel.update({ where: { id } }, updateUserDto);
     return updateUserDto;
   }
 
   async delete(id: number) {
-    const user = await this.userRepository.findByIdAndDelete(id);
+    const user = await this.findOne(id);
+    await user.destroy();
     return user;
   }
 
   async getByEmail(email: string) {
-    const user = this.userRepository.findOne({ email });
+    const user = await this.userModel.findOne({
+      where: { email },
+      include: { all: true },
+    });
     return user;
   }
 
   async addRole(dto: AddRoleDto) {
-    const user = await this.userRepository.findById(dto.userId);
+    const user = await this.userModel.findOne(dto.userId);
     const role = await this.roleService.getByValue(dto.value);
     if (role && user) {
       user.roles.push(role);
-      await user.save();
       return user;
     }
     throw new HttpException('User or Role is not found', HttpStatus.NOT_FOUND);
