@@ -8,6 +8,7 @@ export class RolesService {
   constructor(@InjectModel(Role) private roleModel: typeof Role) {}
   async create(dto: CreateRoleDto): Promise<Role> {
     const role = await this.roleModel.create(dto);
+
     return role;
   }
 
