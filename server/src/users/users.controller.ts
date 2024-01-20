@@ -41,15 +41,15 @@ export class UsersController {
   @Roles('ADMIN')
   @UseGuards(RolesGuard)
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updateUserDto: CreateUserDto) {
-    return this.usersService.update(id, updateUserDto);
+  updateUser(@Param('id') id: number, @Body() updateUserDto: CreateUserDto) {
+    return this.usersService.updateUser(id, updateUserDto);
   }
 
   @Roles('ADMIN')
   @UseGuards(RolesGuard)
   @Delete(':id')
-  delete(@Param('id') id: number) {
-    return this.usersService.delete(id);
+  deleteUser(@Param('id') id: number) {
+    return this.usersService.deleteUser(id);
   }
 
   @Roles('ADMIN')
