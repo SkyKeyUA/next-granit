@@ -38,12 +38,12 @@ export class UsersService {
     throw new HttpException('User is not found', HttpStatus.NOT_FOUND);
   }
 
-  async update(id: number, updateUserDto: Partial<CreateUserDto>) {
-    const user = await this.userModel.update({ where: { id } }, updateUserDto);
+  async updateUser(id: number, updateUserDto: Partial<CreateUserDto>) {
+    const user = await this.userModel.update(updateUserDto, { where: { id } });
     return updateUserDto;
   }
 
-  async delete(id: number) {
+  async deleteUser(id: number) {
     const user = await this.findOne(id);
     await user.destroy();
     return user;
@@ -58,11 +58,11 @@ export class UsersService {
   }
 
   async addRole(dto: AddRoleDto) {
-    const user = await this.userModel.findOne(dto.userId);
+    const user = await this.userModel.findByPk(dto.userId);
     const role = await this.roleService.getByValue(dto.value);
     if (role && user) {
-      user.roles.push(role);
-      return user;
+      await user.$add('role', role.id);
+      return dto;
     }
     throw new HttpException('User or Role is not found', HttpStatus.NOT_FOUND);
   }
