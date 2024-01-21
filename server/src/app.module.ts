@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
-import { ProductModule } from './product/product.module';
 import { FileModule } from './file/file.module';
 import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
@@ -24,7 +23,6 @@ import { UserRoles } from './roles/model/user-roles.model';
       autoLoadModels: true,
     }),
     UsersModule,
-    ProductModule,
     FileModule,
     AuthModule,
     RolesModule,
