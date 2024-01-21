@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './schemas/product.schema';
-import { Model } from 'mongoose';
 import { FileService } from 'src/file/file.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FileType } from 'src/file/file.interface';
-import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class ProductService {
@@ -26,17 +23,17 @@ export class ProductService {
     return products;
   }
 
-  async getOne(id: ObjectId): Promise<Product> {
+  async getOne(id: number): Promise<Product> {
     const product = await this.productModel.findById(id);
     return product;
   }
 
-  async update(id: ObjectId, updateData: Partial<CreateProductDto>) {
+  async update(id: number, updateData: Partial<CreateProductDto>) {
     const product = await this.productModel.updateOne({ _id: id }, updateData);
     return updateData;
   }
 
-  async delete(id: ObjectId) {
+  async delete(id: number) {
     const product = await this.productModel.findByIdAndDelete(id);
     return product;
   }

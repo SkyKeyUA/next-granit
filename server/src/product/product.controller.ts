@@ -13,7 +13,6 @@ import {
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
-import { ObjectId } from 'mongodb';
 
 @Controller('/products')
 export class ProductController {
@@ -36,20 +35,20 @@ export class ProductController {
   }
 
   @Get(':id')
-  getOne(@Param('id') id: ObjectId) {
+  getOne(@Param('id') id: number) {
     return this.productService.getOne(id);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: ObjectId,
+    @Param('id') id: number,
     @Body() updateData: Partial<CreateProductDto>,
   ) {
     return this.productService.update(id, updateData);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: ObjectId) {
+  delete(@Param('id') id: number) {
     return this.productService.delete(id);
   }
 }
