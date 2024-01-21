@@ -1,18 +1,18 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { HydratedDocument } from 'mongoose';
+// import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
+// import mongoose, { HydratedDocument } from 'mongoose';
 
-export type ProductDocument = HydratedDocument<Product>;
+// export type ProductDocument = HydratedDocument<Product>;
 
-@Schema()
-export class Product {
-  @Prop()
-  title: string;
+// @Schema()
+// export class Product {
+//   @Prop()
+//   title: string;
 
-  @Prop()
-  picture: string;
+//   @Prop()
+//   picture: string;
 
-  @Prop()
-  subCatalogId: string;
-}
+//   @Prop()
+//   subCatalogId: string;
+// }
 
-export const ProductSchema = SchemaFactory.createForClass(Product);
+// export const ProductSchema = SchemaFactory.createForClass(Product);

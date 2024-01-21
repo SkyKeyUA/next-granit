@@ -13,7 +13,7 @@ interface UserCreationAttrs {
   password: string;
 }
 
-@Table({ tableName: 'user' })
+@Table({ tableName: 'users' })
 export class User extends Model<User, UserCreationAttrs> {
   @Column({
     type: DataType.INTEGER,
@@ -30,22 +30,13 @@ export class User extends Model<User, UserCreationAttrs> {
   })
   email: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @Column({ type: DataType.STRING, allowNull: false })
   password: string;
 
-  @Column({
-    type: DataType.BOOLEAN,
-    defaultValue: false,
-  })
+  @Column({ type: DataType.BOOLEAN, defaultValue: false })
   banned: boolean;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @Column({ type: DataType.STRING, allowNull: true })
   banReason: string;
 
   @BelongsToMany(() => Role, () => UserRoles)
