@@ -61,6 +61,13 @@ export class UsersController {
 
   @Roles('ADMIN')
   @UseGuards(RolesGuard)
+  @Delete('/role')
+  removeRole(@Body() dto: AddRoleDto) {
+    return this.usersService.removeRole(dto);
+  }
+
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
   @Post('/ban')
   banUser(@Body() dto: BanUserDto) {
     return this.usersService.banUser(dto);
