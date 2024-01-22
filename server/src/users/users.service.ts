@@ -15,7 +15,7 @@ export class UsersService {
 
   async create(dto: CreateUserDto): Promise<User> {
     const user = await this.userModel.create(dto);
-    const role = await this.roleService.getByValue('ADMIN');
+    const role = await this.roleService.getByValue('USER');
     await user.$set('roles', [role.id]);
     user.roles = [role];
     return user;
@@ -67,9 +67,26 @@ export class UsersService {
     throw new HttpException('User or Role is not found', HttpStatus.NOT_FOUND);
   }
 
+  async removeRole(dto: AddRoleDto) {
+    const user = await this.userModel.findByPk(dto.userId);
+    const role = await this.roleService.getByValue(dto.value);
+    if (role && user) {
+      await user.$remove('role', role.id);
+      return dto;
+    }
+    throw new HttpException('User or Role is not found', HttpStatus.NOT_FOUND);
+  }
+
   async banUser(dto: BanUserDto) {
     const user = await this.userModel.findByPk(dto.userId);
-    user.banned = true;
+    if (!user) {
+      throw new HttpException('User is not found', HttpStatus.NOT_FOUND);
+    }
+    if (user.banned === false) {
+      user.banned = true;
+    } else {
+      user.banned = false;
+    }
     user.banReason = dto.banReason;
     await user.save();
     return user;
