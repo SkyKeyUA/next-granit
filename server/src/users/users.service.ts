@@ -15,7 +15,7 @@ export class UsersService {
 
   async create(dto: CreateUserDto): Promise<User> {
     const user = await this.userModel.create(dto);
-    const role = await this.roleService.getByValue('USER');
+    const role = await this.roleService.getByValue('ADMIN');
     await user.$set('roles', [role.id]);
     user.roles = [role];
     return user;
@@ -84,10 +84,11 @@ export class UsersService {
     }
     if (user.banned === false) {
       user.banned = true;
+      user.banReason = dto.banReason;
     } else {
       user.banned = false;
+      user.banReason = null;
     }
-    user.banReason = dto.banReason;
     await user.save();
     return user;
   }
