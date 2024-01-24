@@ -44,7 +44,7 @@ export class UsersService {
   }
 
   async deleteUser(id: number) {
-    const user = await this.findOne(id);
+    const user = await this.userModel.findOne({ where: { id } });
     await user.destroy();
     return user;
   }

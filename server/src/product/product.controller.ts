@@ -19,14 +19,14 @@ export class ProductController {
   constructor(private productService: ProductService) {}
 
   @Post()
-  @UseInterceptors(FileFieldsInterceptor([{ name: 'picture', maxCount: 1 }]))
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'image', maxCount: 1 }]))
   create(
     @UploadedFiles()
-    files: { picture?: Express.Multer.File[] },
+    files: { image?: Express.Multer.File[] },
     @Body() dto: CreateProductDto,
   ) {
-    const { picture } = files;
-    return this.productService.create(dto, picture[0]);
+    const { image } = files;
+    return this.productService.create(dto, image[0]);
   }
 
   @Get()
