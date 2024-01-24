@@ -1,6 +1,8 @@
 class CreateProductDto {
   readonly title: string;
-  readonly subCatalogId: string;
+  readonly content: string;
+  readonly subCatalogId: number;
+  readonly userId: number;
 }
 
 export { CreateProductDto };

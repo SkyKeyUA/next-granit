@@ -7,10 +7,11 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './model/user.model';
 import { Role } from 'src/roles/model/roles.model';
 import { UserRoles } from '@roles/model/user-roles.model';
+import { Product } from '@product/model/product.model';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([User, Role, UserRoles]),
+    SequelizeModule.forFeature([User, Role, UserRoles, Product]),
     RolesModule,
     forwardRef(() => AuthModule),
   ],
