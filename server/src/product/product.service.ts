@@ -19,12 +19,12 @@ export class ProductService {
     });
     return product;
   }
-  async getAll(
-    count = 10,
-    offset = 0,
-  ): Promise<{ rows: Product[]; count: number }> {
+  async getAll(limit, page): Promise<{ rows: Product[]; count: number }> {
+    page = page || 1;
+    limit = limit || 9;
+    let offset = page * limit - limit;
     const products = await this.productModel.findAndCountAll({
-      limit: count,
+      limit,
       offset,
     });
     return products;
