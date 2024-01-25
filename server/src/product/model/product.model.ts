@@ -11,8 +11,9 @@ import {
 interface ProductCreationAttrs {
   title: string;
   content: string;
-  userId: number;
   image: string;
+  userId: number;
+  subCatalogId: string;
 }
 
 @Table({ tableName: 'products' })
@@ -38,8 +39,8 @@ export class Product extends Model<Product, ProductCreationAttrs> {
   @Column({ type: DataType.STRING })
   image: string;
 
-  @Column({ type: DataType.INTEGER })
-  subCatalogId: number;
+  @Column({ type: DataType.STRING, allowNull: false })
+  subCatalogId: string;
 
   @ForeignKey(() => User)
   @Column({ type: DataType.INTEGER, allowNull: false })

@@ -30,8 +30,8 @@ export class ProductController {
   }
 
   @Get()
-  getAll(@Query('count') count: number, @Query('offset') offset: number) {
-    return this.productService.getAll(count, offset);
+  getAll(@Query('limit') limit: number, @Query('page') page: number) {
+    return this.productService.getAll(limit, page);
   }
 
   @Get(':id')

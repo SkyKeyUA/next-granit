@@ -34,8 +34,8 @@ export class Role extends Model<Role, RoleCreationAttrs> {
     type: DataType.STRING,
     allowNull: false,
   })
-  description: boolean;
+  description: string;
 
   @BelongsToMany(() => User, () => UserRoles)
-  user: User[];
+  users: User[];
 }

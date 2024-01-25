@@ -9,6 +9,7 @@ import { User } from './users/model/user.model';
 import { Role } from './roles/model/roles.model';
 import { UserRoles } from './roles/model/user-roles.model';
 import { Product } from '@product/model/product.model';
+import { ProductModule } from '@product/product.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { Product } from '@product/model/product.model';
     FileModule,
     AuthModule,
     RolesModule,
+    ProductModule,
   ],
 })
 export class AppModule {}
