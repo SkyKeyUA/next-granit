@@ -10,6 +10,8 @@ import { Role } from './roles/model/roles.model';
 import { UserRoles } from './roles/model/user-roles.model';
 import { Product } from '@product/model/product.model';
 import { ProductModule } from '@product/product.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
 
 @Module({
   imports: [
@@ -23,6 +25,9 @@ import { ProductModule } from '@product/product.module';
       database: process.env.POSTGRES_DB,
       models: [User, Role, UserRoles, Product],
       autoLoadModels: true,
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: path.resolve(__dirname, 'static/images'),
     }),
     UsersModule,
     FileModule,
