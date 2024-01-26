@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { FileService } from 'src/file/file.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FileType } from 'src/file/file.interface';
@@ -27,12 +27,18 @@ export class ProductService {
       limit,
       offset,
     });
-    return products;
+    if (products) {
+      return products;
+    }
+    throw new HttpException('Products are not found', HttpStatus.NOT_FOUND);
   }
 
   async getOne(id: number): Promise<Product> {
     const product = await this.productModel.findOne({ where: { id } });
-    return product;
+    if (product) {
+      return product;
+    }
+    throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
   }
 
   async update(id: number, updateData: Partial<CreateProductDto>) {
