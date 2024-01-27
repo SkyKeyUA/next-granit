@@ -10,7 +10,7 @@ export class FileService {
     try {
       const fileExtension = file.originalname.split('.').pop();
       const fileName = `${uuid.v4()}.${fileExtension}`;
-      const filePath = path.resolve(__dirname, '..', 'static', type);
+      const filePath = path.resolve(__dirname, '../../src/', 'static', type);
       if (!fs.existsSync(filePath)) {
         fs.mkdirSync(filePath, { recursive: true });
       }
@@ -21,5 +21,10 @@ export class FileService {
     }
   }
 
-  removeFile(fileName: string) {}
+  removeFile(fileName: string) {
+    const filePath = path.resolve(__dirname, '../../src/', 'static', fileName);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
+  }
 }
