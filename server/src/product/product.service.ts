@@ -42,15 +42,21 @@ export class ProductService {
   }
 
   async update(id: number, updateData: Partial<CreateProductDto>) {
-    const product = await this.productModel.update(updateData, {
-      where: { id },
-    });
-    return updateData;
+    const product = await this.productModel.findByPk(id);
+    if (product) {
+      await product.update(updateData);
+      return updateData;
+    }
+    throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
   }
 
   async delete(id: number) {
     const product = await this.productModel.findOne({ where: { id } });
-    await product.destroy();
-    return product;
+    if (product) {
+      await this.fileService.removeFile(product.image);
+      await product.destroy();
+      return product;
+    }
+    throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
   }
 }

@@ -28,7 +28,7 @@ import * as path from 'path';
       autoLoadModels: true,
     }),
     ServeStaticModule.forRoot({
-      rootPath: path.resolve(__dirname, 'static/images'),
+      rootPath: path.resolve(__dirname, '../src/static/images'),
     }),
     UsersModule,
     FileModule,
