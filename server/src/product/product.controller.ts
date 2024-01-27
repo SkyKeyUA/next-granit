@@ -40,11 +40,15 @@ export class ProductController {
   }
 
   @Patch(':id')
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'image', maxCount: 1 }]))
   update(
     @Param('id') id: number,
     @Body() updateData: Partial<CreateProductDto>,
+    @UploadedFiles()
+    files: { image?: Express.Multer.File[] },
   ) {
-    return this.productService.update(id, updateData);
+    const { image } = files;
+    return this.productService.update(id, updateData, image[0]);
   }
 
   @Delete(':id')

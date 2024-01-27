@@ -12,6 +12,7 @@ export class ProductService {
     private fileService: FileService,
   ) {}
   async create(dto: CreateProductDto, image): Promise<Product> {
+    await this.checkUniqueTitle(dto.title);
     const fileName = await this.fileService.createFile(FileType.IMAGE, image);
     const product = await this.productModel.create({
       ...dto,
@@ -41,13 +42,18 @@ export class ProductService {
     throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
   }
 
-  async update(id: number, updateData: Partial<CreateProductDto>) {
-    const product = await this.productModel.findByPk(id);
-    if (product) {
-      await product.update(updateData);
-      return updateData;
+  async update(id: number, updateData: Partial<CreateProductDto>, image) {
+    const product = await this.productModel.findOne({ where: { id } });
+    if (!product) {
+      throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
     }
-    throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
+    if (product.title !== updateData.title) {
+      await this.checkUniqueTitle(updateData.title);
+    }
+    await this.fileService.removeFile(product.image);
+    const fileName = await this.fileService.createFile(FileType.IMAGE, image);
+    await product.update({ ...updateData, image: fileName });
+    return product;
   }
 
   async delete(id: number) {
@@ -58,5 +64,17 @@ export class ProductService {
       return product;
     }
     throw new HttpException('Product is not found', HttpStatus.NOT_FOUND);
+  }
+
+  private async checkUniqueTitle(title: string): Promise<void> {
+    const existingTitle = await this.productModel.findOne({
+      where: { title },
+    });
+    if (existingTitle) {
+      throw new HttpException(
+        'Product with this title already exists',
+        HttpStatus.CONFLICT,
+      );
+    }
   }
 }
