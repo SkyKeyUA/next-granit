@@ -61,7 +61,7 @@ export class UsersController {
 
   @Roles('ADMIN')
   @UseGuards(RolesGuard)
-  @Delete('/role')
+  @Delete('/role/delete')
   removeRole(@Body() dto: AddRoleDto) {
     return this.usersService.removeRole(dto);
   }

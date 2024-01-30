@@ -5,6 +5,7 @@ import { AddRoleDto } from './dto/add-role.dto';
 import { BanUserDto } from './dto/ban-user.dto';
 import { User } from './model/user.model';
 import { InjectModel } from '@nestjs/sequelize';
+import { Role } from '@roles/model/roles.model';
 
 @Injectable()
 export class UsersService {
@@ -68,8 +69,9 @@ export class UsersService {
   }
 
   async removeRole(dto: AddRoleDto) {
-    const user = await this.userModel.findByPk(dto.userId);
-    const role = await this.roleService.getByValue(dto.value);
+    const { userId, value } = dto;
+    const user = await this.userModel.findByPk(userId);
+    const role = await this.roleService.getByValue(value);
     if (role && user) {
       await user.$remove('role', role.id);
       return dto;
