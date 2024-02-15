@@ -59,8 +59,9 @@ export class UsersService {
   }
 
   async addRole(dto: AddRoleDto) {
-    const user = await this.userModel.findByPk(dto.userId);
-    const role = await this.roleService.getByValue(dto.value);
+    const { userId, value } = dto;
+    const user = await this.userModel.findByPk(userId);
+    const role = await this.roleService.getByValue(value);
     if (role && user) {
       await user.$add('role', role.id);
       return dto;
