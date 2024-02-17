@@ -1,5 +1,5 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FilterSliceState } from './type';
+import { FilterSliceState } from './filter.types';
 import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState: FilterSliceState = {
