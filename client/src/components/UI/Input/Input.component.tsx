@@ -1,6 +1,6 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
-import { setSearchValue } from '@redux/reducers/filter/reducer';
+import { setSearchValue } from '@redux/reducers/filter/filter.reducer';
 import { useAppDispatch } from '@hooks/redux';
 
 import styles from './Input.module.scss';

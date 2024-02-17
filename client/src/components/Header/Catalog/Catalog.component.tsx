@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch } from '@hooks/redux';
-import { setCategoryId, setSubCategoryId } from '@redux/reducers/filter/reducer';
-import { useFilterSelector } from '@redux/reducers/filter/selectors';
+import { setCategoryId, setSubCategoryId } from '@redux/reducers/filter/filter.reducer';
+import { useFilterSelector } from '@redux/reducers/filter/filter.selectors';
 
 import styles from './Catalog.module.scss';
 import dynamic from 'next/dynamic';
