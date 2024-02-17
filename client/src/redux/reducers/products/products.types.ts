@@ -9,4 +9,16 @@ export enum Status {
 export interface ProductsSliceState {
   products: IProduct[];
   statusProducts: Status;
+  currentPage: number;
+  count: number;
 }
+
+export interface ProductsPages {
+  products: IProduct[];
+  currentPage: number;
+  count: number;
+}
+
+export type SearchIProductsParams = {
+  currentPage: string;
+};
