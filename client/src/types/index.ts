@@ -1,13 +1,13 @@
-export interface IProducts {
+export type Products = {
   count: number;
-  rows: IProduct[];
-}
+  rows: Product[];
+};
 
-export interface IProduct {
+export type Product = {
   id: number;
   title: string;
   content: string;
   image: string;
   subCatalogId: string;
   userId: number;
-}
+};
