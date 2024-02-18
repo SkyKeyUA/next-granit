@@ -1,4 +1,4 @@
-import { IProduct } from '@customTypes/index';
+import { Product } from '@customTypes/index';
 
 export enum Status {
   LOADING = 'loading',
@@ -6,19 +6,15 @@ export enum Status {
   ERROR = 'error',
 }
 
-export interface ProductsSliceState {
-  products: IProduct[];
+export type ProductsSliceState = {
+  products: Product[];
   statusProducts: Status;
   currentPage: number;
   count: number;
-}
+};
 
-export interface ProductsPages {
-  products: IProduct[];
+export type ProductsPages = {
+  products: Product[];
   currentPage: number;
   count: number;
-}
-
-export type SearchIProductsParams = {
-  currentPage: string;
 };

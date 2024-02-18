@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ProductsSliceState, Status } from './products.types';
-import { IProduct } from '@customTypes/index';
+import { Product } from '@customTypes/index';
 import { fetchProductsPages } from './products.asyncActions';
 
 const initialState: ProductsSliceState = {
@@ -14,8 +14,8 @@ const productsReducer = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setProducts(state, action: PayloadAction<IProduct[]>) {
-      state.products = action.payload;
+    setProducts(state, { payload }: PayloadAction<Product[]>) {
+      state.products = payload;
     },
   },
   extraReducers: (builder) => {
@@ -24,9 +24,9 @@ const productsReducer = createSlice({
       state.count = 0;
       state.statusProducts = Status.LOADING;
     });
-    builder.addCase(fetchProductsPages.fulfilled, (state, action) => {
-      state.products = action.payload.rows;
-      state.count = action.payload.count;
+    builder.addCase(fetchProductsPages.fulfilled, (state, { payload }) => {
+      state.products = payload.rows;
+      state.count = payload.count;
       state.statusProducts = Status.SUCCESS;
     });
     builder.addCase(fetchProductsPages.rejected, (state) => {
@@ -35,8 +35,8 @@ const productsReducer = createSlice({
       state.statusProducts = Status.ERROR;
       console.log('There was an error');
     });
-    builder.addCase(fetchRemoveProducts.pending, (state, action) => {
-      state.products = state.products.filter((obj) => obj._id !== action.meta.arg);
+    builder.addCase(fetchRemoveProducts.pending, (state, { meta }) => {
+      state.products = state.products.filter((obj) => obj._id !== meta.arg);
     });
   },
 });

@@ -1,14 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ProductsPages, SearchIProductsParams } from './products.types';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { ProductsServices } from '@services/ProductsServices';
-import { IProducts } from '@customTypes/index';
+import { Products } from '@customTypes/index';
 
-export const fetchProductsPages = createAsyncThunk<IProducts, SearchIProductsParams>(
+export const fetchProductsPages = createAsyncThunk<Products, string>(
   'products/fetchProductsPages',
-  async (params: SearchIProductsParams, { rejectWithValue }) => {
+  async (currentPage, { rejectWithValue }) => {
     try {
-      const { data } = await ProductsServices.getProducts(params);
+      const { data } = await ProductsServices.getProducts(currentPage);
       return data;
     } catch (e) {
       const err = e as AxiosError;
