@@ -18,3 +18,18 @@ export const fetchProductsPages = createAsyncThunk<Products, string>(
     }
   },
 );
+export const fetchRemoveProduct = createAsyncThunk(
+  'products/fetchRemoveProduct',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const { data } = await ProductsServices.removeProduct(id);
+      return data;
+    } catch (e) {
+      const err = e as AxiosError;
+      if (!err.response) {
+        throw err;
+      }
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
