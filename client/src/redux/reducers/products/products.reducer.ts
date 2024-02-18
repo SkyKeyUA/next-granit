@@ -1,13 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ProductsSliceState, Status } from './products.types';
 import { Product } from '@customTypes/index';
-import { fetchProductsPages } from './products.asyncActions';
+import { fetchProductsPages, fetchRemoveProduct } from './products.asyncActions';
 
 const initialState: ProductsSliceState = {
   products: [],
   statusProducts: Status.LOADING,
   currentPage: 0,
   count: 0,
+  error: null,
 };
 
 const productsReducer = createSlice({
@@ -29,14 +30,15 @@ const productsReducer = createSlice({
       state.count = payload.count;
       state.statusProducts = Status.SUCCESS;
     });
-    builder.addCase(fetchProductsPages.rejected, (state) => {
+    builder.addCase(fetchProductsPages.rejected, (state, action) => {
+      state.error = action.error;
       state.products = [];
       state.count = 0;
       state.statusProducts = Status.ERROR;
       console.log('There was an error');
     });
-    builder.addCase(fetchRemoveProducts.pending, (state, { meta }) => {
-      state.products = state.products.filter((obj) => obj._id !== meta.arg);
+    builder.addCase(fetchRemoveProduct.pending, (state, { meta }) => {
+      state.products = state.products.filter((obj) => obj.id !== Number(meta.arg));
     });
   },
 });
