@@ -1,6 +1,6 @@
-export type Products = {
+export type ApiResponse<data> = {
   count: number;
-  rows: Product[];
+  rows: data[];
 };
 
 export type Product = {

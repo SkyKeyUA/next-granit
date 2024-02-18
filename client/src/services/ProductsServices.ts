@@ -1,12 +1,15 @@
 import $api from '@api/index';
-import { Product, Products } from '@customTypes/index';
-import { AxiosResponse } from 'axios';
+import { Product, ApiResponse } from '@customTypes/index';
 
 export class ProductsServices {
-  static async getProducts(currentPage: string): Promise<AxiosResponse<Products>> {
-    return $api.get(`products?limit=9&page=${currentPage}`);
+  static async getProducts(currentPage: string): Promise<ApiResponse<Product>> {
+    const response: ApiResponse<Product> = await $api.get(`products?limit=9&page=${currentPage}`);
+    return {
+      count: response.count,
+      rows: response.rows,
+    };
   }
-  static async removeProduct(id: string): Promise<AxiosResponse<Product>> {
+  static async removeProduct(id: string) {
     return $api.delete(`products/${id}`);
   }
 }

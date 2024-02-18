@@ -30,9 +30,11 @@ export const CatalogComponent: React.FC<CatalogProps> = ({ setCategoryToggle, ca
     <div className={`${styles.inner} ${categoryToggle ? `${styles.inner_open}` : ''}`}>
       <div className={styles.container}>
         <nav className={styles.menu}>
-          <Tablet>
-            <DynamicBackButton onClick={() => setCategoryToggle(false)} />
-          </Tablet>
+          {setCategoryToggle && (
+            <Tablet>
+              <DynamicBackButton onClick={() => setCategoryToggle(false)} />
+            </Tablet>
+          )}
           <ul className={styles.items}>
             {categories.map(({ id, menuCatalog }) => (
               <li
