@@ -1,12 +1,11 @@
 import $api from '@api/index';
-import { Product, Products } from '@customTypes/index';
-import { AxiosResponse } from 'axios';
+import { Product, ApiResponse } from '@customTypes/index';
 
 export class ProductsServices {
-  static async getProducts(currentPage: string): Promise<AxiosResponse<Products>> {
+  static async getProducts(currentPage: string): Promise<ApiResponse<Product>> {
     return $api.get(`products?limit=9&page=${currentPage}`);
   }
-  static async removeProduct(id: string): Promise<AxiosResponse<Product>> {
+  static async removeProduct(id: string) {
     return $api.delete(`products/${id}`);
   }
 }
