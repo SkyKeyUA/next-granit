@@ -13,7 +13,6 @@ import { ProductModule } from '@product/product.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as path from 'path';
 
-
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env' }),
@@ -29,6 +28,7 @@ import * as path from 'path';
     }),
     ServeStaticModule.forRoot({
       rootPath: path.resolve(__dirname, '../src/static/images'),
+      serveRoot: '/images',
     }),
     UsersModule,
     FileModule,
