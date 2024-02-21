@@ -4,7 +4,6 @@ import styles from './HomePage.module.scss';
 import { Product } from '@components/Product';
 import { useAppDispatch } from '@hooks/redux';
 import { fetchProductsPages } from '@redux/reducers/products/products.asyncActions';
-import { useSelector } from 'react-redux';
 import { useProductsSelector } from '@redux/reducers/products/products.selectors';
 
 export const HomePageComponent: React.FC = () => {
@@ -18,8 +17,8 @@ export const HomePageComponent: React.FC = () => {
   }, []);
   return (
     <div className={styles.container}>
-      {products.map((_, index) => (
-        <Product key={index} />
+      {products.map((product) => (
+        <Product key={product.id} {...product} />
       ))}
     </div>
   );
