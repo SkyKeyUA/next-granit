@@ -21,7 +21,7 @@
   z-index: 2;
   cursor: pointer;
   path {
-    fill: var(--primary);
+    fill: var(--light-primary);
     transition: all 0.3s ease 0s;
   }
   &:hover {
