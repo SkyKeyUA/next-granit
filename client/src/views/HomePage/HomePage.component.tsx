@@ -7,10 +7,15 @@ import { fetchProductsPages } from '@redux/reducers/products/products.asyncActio
 import { useProductsSelector } from '@redux/reducers/products/products.selectors';
 import { Pagination } from '@components/UI/Pagination';
 import { setCurrentPage } from '@redux/reducers/filter/filter.reducer';
+import { useFilterSelector } from '@redux/reducers/filter/filter.selectors';
 
 export const HomePageComponent: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { currentPage, count, products } = useProductsSelector();
+  const { currentPage, searchValue } = useFilterSelector();
+  const { count, products } = useProductsSelector();
+  const productsFilter = products.filter(({ title }) =>
+    title.toLowerCase().includes(searchValue.toLowerCase()),
+  );
   const getProducts = () => {
     dispatch(fetchProductsPages(String(currentPage)));
   };
@@ -19,12 +24,12 @@ export const HomePageComponent: React.FC = () => {
   };
   React.useEffect(() => {
     getProducts();
-  }, []);
+  }, [currentPage]);
   return (
     <div className={styles.container}>
       <Pagination currentPage={currentPage} count={count} onChangePage={onChangePage} />
       <div className={styles.inner}>
-        {products.map((product) => (
+        {productsFilter.map((product) => (
           <Product key={product.id} {...product} />
         ))}
       </div>
