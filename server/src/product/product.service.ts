@@ -20,7 +20,14 @@ export class ProductService {
     });
     return product;
   }
-  async getAll(limit, page): Promise<{ rows: Product[]; count: number }> {
+  async getAll(): Promise<Product[]> {
+    const products = await this.productModel.findAll();
+    if (products) {
+      return products;
+    }
+    throw new HttpException('Products are not found', HttpStatus.NOT_FOUND);
+  }
+  async getPage(limit, page): Promise<{ rows: Product[]; count: number }> {
     page = page || 1;
     limit = limit || 9;
     let offset = page * limit - limit;
