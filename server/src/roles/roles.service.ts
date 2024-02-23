@@ -9,6 +9,7 @@ export class RolesService {
 
   async create(dto: CreateRoleDto): Promise<Role> {
     const role = await this.roleModel.create(dto);
+
     return role;
   }
 

@@ -1,15 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ProductsPages, SearchIProductsParams } from './products.types';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { ProductsServices } from '@services/ProductsServices';
-import { IProducts } from '@customTypes/index';
+import { ApiResponse, Product } from '@customTypes/index';
 
-export const fetchProductsPages = createAsyncThunk<IProducts, SearchIProductsParams>(
+export const fetchProductsPages = createAsyncThunk<ApiResponse<Product>, string>(
   'products/fetchProductsPages',
-  async (params: SearchIProductsParams, { rejectWithValue }) => {
+  async (currentPage, { rejectWithValue }) => {
     try {
-      const { data } = await ProductsServices.getProducts(params);
-      return data;
+      const response = await ProductsServices.getProducts(currentPage);
+      return response;
+    } catch (e) {
+      const err = e as AxiosError;
+      if (!err.response) {
+        throw err;
+      }
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+export const fetchRemoveProduct = createAsyncThunk(
+  'products/fetchRemoveProduct',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      await ProductsServices.removeProduct(id);
+      return id;
     } catch (e) {
       const err = e as AxiosError;
       if (!err.response) {

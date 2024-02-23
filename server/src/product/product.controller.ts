@@ -29,9 +29,14 @@ export class ProductController {
     return this.productService.create(dto, image[0]);
   }
 
+  @Get('/all')
+  getAll() {
+    return this.productService.getAll();
+  }
+
   @Get()
-  getAll(@Query('limit') limit: number, @Query('page') page: number) {
-    return this.productService.getAll(limit, page);
+  getPage(@Query('limit') limit: number, @Query('page') page: number) {
+    return this.productService.getPage(limit, page);
   }
 
   @Get(':id')

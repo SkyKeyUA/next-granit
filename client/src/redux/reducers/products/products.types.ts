@@ -1,4 +1,5 @@
-import { IProduct } from '@customTypes/index';
+import { Product } from '@customTypes/index';
+import { Serializable } from 'child_process';
 
 export enum Status {
   LOADING = 'loading',
@@ -6,19 +7,14 @@ export enum Status {
   ERROR = 'error',
 }
 
-export interface ProductsSliceState {
-  products: IProduct[];
+export type ProductsSliceState = {
+  products: Product[];
   statusProducts: Status;
-  currentPage: number;
   count: number;
-}
+  error: null | Serializable;
+};
 
-export interface ProductsPages {
-  products: IProduct[];
-  currentPage: number;
+export type ProductsPages = {
+  products: Product[];
   count: number;
-}
-
-export type SearchIProductsParams = {
-  currentPage: string;
 };

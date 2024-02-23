@@ -1,28 +1,32 @@
 .root {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
   li {
     display: inline-block;
     a {
+      transition: all 0.3s ease 0s;
+      display: inline-block;
       text-align: center;
       width: 45px;
       height: 45px;
       line-height: 42px;
-      border: 1px solid #fe5f1e;
+      border: 1px solid var(--primary-black);
       border-radius: 30px;
       margin-right: 10px;
       cursor: pointer;
-      display: inline-block;
-      color: #fe5f1e;
+      color: var(--primary-black);
       &:hover {
-        background-color: #fe5f1e;
-        color: #fff;
+        background-color: var(--orange);
+        color: var(--primary-black);
       }
     }
   }
   :global {
     .selected {
       a {
-        background-color: #fe5f1e;
-        color: #fff;
+        background-color: var(--orange);
+        color: var(--primary-black);
       }
     }
   }

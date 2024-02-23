@@ -1,13 +1,11 @@
 import $api from '@api/index';
-import { IProducts } from '@customTypes/index';
-import { SearchIProductsParams } from '@redux/reducers/products/products.types';
-import { AxiosResponse } from 'axios';
+import { Product, ApiResponse } from '@customTypes/index';
 
 export class ProductsServices {
-  static async getProducts(
-    params: SearchIProductsParams,
-  ): Promise<AxiosResponse<IProducts, SearchIProductsParams>> {
-    const { currentPage } = params;
-    return $api.get<IProducts>(`products?limit=9&page=${currentPage}`);
+  static async getProducts(currentPage: string): Promise<ApiResponse<Product>> {
+    return $api.get(`products?limit=9&page=${currentPage}`);
+  }
+  static async removeProduct(id: string) {
+    return $api.delete(`products/${id}`);
   }
 }

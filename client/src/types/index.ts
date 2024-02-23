@@ -1,13 +1,13 @@
-export interface IProducts {
+export type ApiResponse<data> = {
   count: number;
-  rows: IProduct[];
-}
+  rows: data[];
+};
 
-export interface IProduct {
+export type Product = {
   id: number;
   title: string;
   content: string;
   image: string;
   subCatalogId: string;
   userId: number;
-}
+};
