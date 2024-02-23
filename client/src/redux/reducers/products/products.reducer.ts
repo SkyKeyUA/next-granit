@@ -6,7 +6,6 @@ import { fetchProductsPages, fetchRemoveProduct } from './products.asyncActions'
 const initialState: ProductsSliceState = {
   products: [],
   statusProducts: Status.LOADING,
-  currentPage: 1,
   count: 0,
   error: null,
 };

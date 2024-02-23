@@ -10,13 +10,11 @@ export enum Status {
 export type ProductsSliceState = {
   products: Product[];
   statusProducts: Status;
-  currentPage: number;
   count: number;
   error: null | Serializable;
 };
 
 export type ProductsPages = {
   products: Product[];
-  currentPage: number;
   count: number;
 };
