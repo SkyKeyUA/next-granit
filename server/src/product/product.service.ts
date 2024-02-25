@@ -20,8 +20,8 @@ export class ProductService {
     });
     return product;
   }
-  async getAll(): Promise<Product[]> {
-    const products = await this.productModel.findAll();
+  async getAll(): Promise<{ rows: Product[]; count: number }> {
+    const products = await this.productModel.findAndCountAll();
     if (products) {
       return products;
     }

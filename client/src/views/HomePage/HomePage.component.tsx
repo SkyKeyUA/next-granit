@@ -3,7 +3,10 @@ import React from 'react';
 import styles from './HomePage.module.scss';
 import { Product } from '@components/Product';
 import { useAppDispatch } from '@hooks/redux';
-import { fetchProductsPages } from '@redux/reducers/products/products.asyncActions';
+import {
+  fetchAllProducts,
+  fetchProductsPages,
+} from '@redux/reducers/products/products.asyncActions';
 import { useProductsSelector } from '@redux/reducers/products/products.selectors';
 import { Pagination } from '@components/UI/Pagination';
 import { setCurrentPage } from '@redux/reducers/filter/filter.reducer';
@@ -16,18 +19,27 @@ export const HomePageComponent: React.FC = () => {
   const productsFilter = products.filter(({ title }) =>
     title.toLowerCase().includes(searchValue.toLowerCase()),
   );
-  const getProducts = () => {
+  const getProductsPages = () => {
     dispatch(fetchProductsPages(String(currentPage)));
+  };
+  const getAllProducts = () => {
+    dispatch(fetchAllProducts());
   };
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page));
   };
   React.useEffect(() => {
-    getProducts();
-  }, [currentPage]);
+    if (searchValue) {
+      getAllProducts();
+    } else {
+      getProductsPages();
+    }
+  }, [currentPage, searchValue]);
   return (
     <div className={styles.container}>
-      <Pagination currentPage={currentPage} count={count} onChangePage={onChangePage} />
+      {!searchValue && (
+        <Pagination currentPage={currentPage} count={count} onChangePage={onChangePage} />
+      )}
       <div className={styles.inner}>
         {productsFilter.map((product) => (
           <Product key={product.id} {...product} />
