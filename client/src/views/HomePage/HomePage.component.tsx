@@ -29,11 +29,9 @@ export const HomePageComponent: React.FC = () => {
     dispatch(setCurrentPage(page));
   };
   React.useEffect(() => {
-    if (searchValue) {
-      getAllProducts();
-    } else {
-      getProductsPages();
-    }
+    if (searchValue) return getAllProducts();
+
+    return getProductsPages();
   }, [currentPage, searchValue]);
   return (
     <div className={styles.container}>
