@@ -5,8 +5,7 @@ export const useResponsive = () => {
   const isTablet = useMediaQuery({ maxWidth: 991.97 });
   const isMobile = useMediaQuery({ maxWidth: 767.98 });
   const isMobileSmall = useMediaQuery({ maxWidth: 479.98 });
-  const isCustomResponsive = useMediaQuery({ maxWidth: 599.98 });
-  const toCustomResponsive = useMediaQuery({ minWidth: 599.97 });
+  const toMobile = useMediaQuery({ minWidth: 767.98 });
 
   const Desktop: React.FC<React.PropsWithChildren> = ({ children }) => {
     return isDesktop ? children : null;
@@ -20,11 +19,9 @@ export const useResponsive = () => {
   const MobileSmall: React.FC<React.PropsWithChildren> = ({ children }) => {
     return isMobileSmall ? children : null;
   };
-  const CustomResponsive: React.FC<React.PropsWithChildren> = ({ children }) => {
-    return isCustomResponsive ? children : null;
-  };
-  const ToCustomResponsive: React.FC<React.PropsWithChildren> = ({ children }) => {
-    return toCustomResponsive ? children : null;
+
+  const ToMobile: React.FC<React.PropsWithChildren> = ({ children }) => {
+    return toMobile ? children : null;
   };
 
   return {
@@ -32,7 +29,6 @@ export const useResponsive = () => {
     Tablet,
     Mobile,
     MobileSmall,
-    CustomResponsive,
-    ToCustomResponsive,
+    ToMobile,
   };
 };
