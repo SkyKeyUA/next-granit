@@ -10,7 +10,7 @@ import { DynamiFooterCategories } from './Categories/FooterCategories.component'
 
 export const FooterComponent: React.FC = () => {
   const [active, setActive] = React.useState([false, false, false, false, false]);
-  const { CustomResponsive, ToCustomResponsive } = useResponsive();
+  const { Mobile, ToMobile } = useResponsive();
   return (
     <footer className={styles.root}>
       <div className={styles.container}>
@@ -30,7 +30,7 @@ export const FooterComponent: React.FC = () => {
             </div>
             <PhoneNumbers phoneNumbers={phoneNumbers} icon={IconsEnum.phone} />
           </div>
-          <ToCustomResponsive>
+          <ToMobile>
             {categories.map((obj) => (
               <DynamiFooterCategories
                 key={obj.id}
@@ -38,8 +38,8 @@ export const FooterComponent: React.FC = () => {
                 subtitle={obj.submenuCatalog}
               />
             ))}
-          </ToCustomResponsive>
-          <CustomResponsive>
+          </ToMobile>
+          <Mobile>
             {categories.map((obj) => (
               <DynamicAccordion
                 key={obj.id}
@@ -50,7 +50,7 @@ export const FooterComponent: React.FC = () => {
                 subtitle={obj.submenuCatalog}
               />
             ))}
-          </CustomResponsive>
+          </Mobile>
         </div>
       </div>
     </footer>

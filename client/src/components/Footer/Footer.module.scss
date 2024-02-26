@@ -7,7 +7,7 @@
 .body {
   padding: 20px 0px;
   border-top: 1px solid var(--primary-black);
-  @media (min-width: 599.98px) {
+  @media (min-width: 767.98px) {
     display: grid;
     grid-template-columns: 300px repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
@@ -20,7 +20,7 @@
   &:last-child {
     flex: 1 1 auto;
   }
-  @media (max-width: 599.98px) {
+  @media (max-width: 767.98px) {
     margin-bottom: 30px;
   }
 }
