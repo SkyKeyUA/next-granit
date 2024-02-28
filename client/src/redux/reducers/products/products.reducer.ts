@@ -54,10 +54,10 @@ const productsReducer = createSlice({
       console.log('There was an error');
     });
     builder.addCase(fetchRemoveProduct.pending, (state, { meta }) => {
-      state.products = state.products.filter((obj) => obj.id !== Number(meta.arg));
+      state.products = state.products.filter(({ id }) => id !== Number(meta.arg));
     });
     builder.addCase(fetchRemoveProduct.fulfilled, (state, { meta }) => {
-      state.products = state.products.filter((obj) => obj.id !== Number(meta.arg));
+      state.products = state.products.filter(({ id }) => id !== Number(meta.arg));
     });
   },
 });

@@ -8,6 +8,11 @@ export class ProductsServices {
   static async getProducts(currentPage: string): Promise<ApiResponse<Product>> {
     return $api.get(`products?limit=9&page=${currentPage}`);
   }
+
+  static async getProduct(id: string): Promise<Product> {
+    return $api.get(`products/${id}`);
+  }
+
   static async removeProduct(id: string) {
     return $api.delete(`products/${id}`);
   }
