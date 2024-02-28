@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styles from './HomePage.module.scss';
-import { Product } from '@components/Product';
 import { useAppDispatch } from '@hooks/redux';
 import {
   fetchAllProducts,
@@ -11,6 +10,7 @@ import { useProductsSelector } from '@redux/reducers/products/products.selectors
 import { Pagination } from '@components/UI/Pagination';
 import { setCurrentPage } from '@redux/reducers/filter/filter.reducer';
 import { useFilterSelector } from '@redux/reducers/filter/filter.selectors';
+import { Product } from '@components/Product';
 
 export const HomePageComponent: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -35,7 +35,7 @@ export const HomePageComponent: React.FC = () => {
   }, [currentPage, searchValue]);
   return (
     <div className={styles.container}>
-      {!searchValue && (
+      {count && !searchValue && (
         <Pagination currentPage={currentPage} count={count} onChangePage={onChangePage} />
       )}
       <div className={styles.inner}>

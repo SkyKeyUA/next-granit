@@ -34,6 +34,23 @@ export const fetchProductsPages = createAsyncThunk<ApiResponse<Product>, string>
     }
   },
 );
+
+export const fetchProduct = createAsyncThunk<Product, string>(
+  'products/fetchProduct',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await ProductsServices.getProduct(id);
+      return response;
+    } catch (e) {
+      const err = e as AxiosError;
+      if (!err.response) {
+        throw err;
+      }
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
 export const fetchRemoveProduct = createAsyncThunk(
   'products/fetchRemoveProduct',
   async (id: string, { rejectWithValue }) => {
