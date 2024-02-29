@@ -3,6 +3,13 @@
   justify-content: center;
   align-items: center;
   animation: animateBg 10s linear infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .body {
@@ -24,9 +31,9 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background: #791883;
-      box-shadow: 0 0 10px #791883, 0 0 20px #791883, 0 0 40px #791883, 0 0 60px #791883,
-        0 0 80px #791883, 0 0 100px #791883;
+      background: var(--orange);
+      box-shadow: 0 0 10px var(--orange), 0 0 20px var(--orange), 0 0 40px var(--orange),
+        0 0 60px var(--orange), 0 0 80px var(--orange), 0 0 100px var(--orange);
       animation: animate 2s linear infinite;
       animation-delay: calc(0.1s * var(--i));
     }

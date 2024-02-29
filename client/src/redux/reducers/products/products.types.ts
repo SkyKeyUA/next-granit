@@ -12,6 +12,7 @@ export type ProductsSliceState = {
   statusProducts: Status;
   count: number;
   error: null | Serializable;
+  product: Product | null;
 };
 
 export type ProductsPages = {

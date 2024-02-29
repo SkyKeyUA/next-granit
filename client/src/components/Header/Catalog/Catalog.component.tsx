@@ -6,7 +6,7 @@ import { useFilterSelector } from '@redux/reducers/filter/filter.selectors';
 import styles from './Catalog.module.scss';
 import dynamic from 'next/dynamic';
 import { categories } from './Catalog.constants';
-import { CatalogProps } from './Catalog.type';
+import { CatalogProps } from './Catalog.types';
 import { DynamicBackButton } from '@components/UI/Button/BackButton';
 import { useResponsive } from '@hooks/useResponsive';
 

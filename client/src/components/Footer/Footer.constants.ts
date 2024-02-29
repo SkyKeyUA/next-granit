@@ -1,4 +1,4 @@
-import { FooterProps } from './Footer.type';
+import { FooterProps } from './Footer.types';
 
 export const phoneNumbers = [
   { fullNumber: '+380675561977', shortNumber: '067-556-19-77' },
