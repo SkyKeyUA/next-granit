@@ -16,6 +16,7 @@ export const HomePageComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const { currentPage, searchValue } = useFilterSelector();
   const { count, products } = useProductsSelector();
+  const countPage = Math.floor(count / 9);
   const productsFilter = products.filter(({ title }) =>
     title.toLowerCase().includes(searchValue.toLowerCase()),
   );
@@ -35,7 +36,7 @@ export const HomePageComponent: React.FC = () => {
   }, [currentPage, searchValue]);
   return (
     <div className={styles.container}>
-      {count && !searchValue && (
+      {countPage && !searchValue && (
         <Pagination currentPage={currentPage} count={count} onChangePage={onChangePage} />
       )}
       <div className={styles.inner}>

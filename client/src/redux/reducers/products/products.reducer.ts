@@ -1,13 +1,19 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ProductsSliceState, Status } from './products.types';
 import { Product } from '@customTypes/index';
-import { fetchAllProducts, fetchProductsPages, fetchRemoveProduct } from './products.asyncActions';
+import {
+  fetchAllProducts,
+  fetchProduct,
+  fetchProductsPages,
+  fetchRemoveProduct,
+} from './products.asyncActions';
 
 const initialState: ProductsSliceState = {
   products: [],
   statusProducts: Status.LOADING,
   count: 0,
   error: null,
+  product: null,
 };
 
 const productsReducer = createSlice({
@@ -50,6 +56,20 @@ const productsReducer = createSlice({
       state.error = action.error;
       state.products = [];
       state.count = 0;
+      state.statusProducts = Status.ERROR;
+      console.log('There was an error');
+    });
+    builder.addCase(fetchProduct.pending, (state) => {
+      state.product = null;
+      state.statusProducts = Status.LOADING;
+    });
+    builder.addCase(fetchProduct.fulfilled, (state, { payload }) => {
+      state.product = payload;
+      state.statusProducts = Status.SUCCESS;
+    });
+    builder.addCase(fetchProduct.rejected, (state, action) => {
+      state.error = action.error;
+      state.product = null;
       state.statusProducts = Status.ERROR;
       console.log('There was an error');
     });

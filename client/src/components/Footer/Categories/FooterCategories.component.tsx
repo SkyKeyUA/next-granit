@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './FooterCategories.module.scss';
 import dynamic from 'next/dynamic';
-import { FooterCategoriesProps } from './FooterCategories.type';
+import { FooterCategoriesProps } from './FooterCategories.types';
 
 export const DynamiFooterCategories = dynamic(() =>
   import('@components/Footer/Categories').then((mod) => mod.FooterCategories),

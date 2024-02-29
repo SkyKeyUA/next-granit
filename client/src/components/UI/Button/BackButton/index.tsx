@@ -4,7 +4,7 @@ import styles from './BackButton.module.scss';
 import dynamic from 'next/dynamic';
 import { Button } from '..';
 import { IconsEnum } from '@components/UI/SvgIcon';
-import { BackButtonProps } from './BackButtonProps.type';
+import { BackButtonProps } from './BackButtonProps.types';
 
 export const DynamicBackButton = dynamic(() =>
   import('@components/UI/Button/BackButton').then((mod) => mod.BackButton),
