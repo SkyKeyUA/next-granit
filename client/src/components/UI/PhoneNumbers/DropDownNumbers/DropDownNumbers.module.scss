@@ -27,11 +27,9 @@
 }
 
 .arrow {
-  border-left: 8px solid var(--body-color);
-  border-right: 8px solid var(--body-color);
-  border-top: 12px solid var(--orange);
   transition: all 0.3s ease 0s;
   margin-left: 10px;
+  background: inherit;
   &:hover {
     opacity: 0.6;
   }
@@ -39,8 +37,9 @@
     transform: rotate(-180deg);
   }
   @media (max-width: 991.98px) {
-    border-left: 8px solid var(--dark);
-    border-right: 8px solid var(--dark);
+    path {
+      fill: var(--white);
+    }
   }
   @media (max-width: 479.98px) {
     margin-left: 5px;

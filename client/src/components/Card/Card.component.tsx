@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Product.module.scss';
+import styles from './Card.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
@@ -8,7 +8,7 @@ import { baseURL } from '@api/index';
 import { Highlight } from '@components/UI/Highlight';
 import { Product } from '@customTypes/index';
 
-export const ProductComponent: React.FC<Product> = ({ title, image, id }) => {
+export const CardComponent: React.FC<Product> = ({ title, image, id }) => {
   const imageUrl = `${baseURL}${image}`;
   const light = (str: string) => {
     return <Highlight str={str} />;

@@ -19,14 +19,14 @@ export const ActionsComponent: React.FC = () => {
         <SvgIcon
           className={styles.svg}
           src={IconsEnum.location}
-          style={{ height: '25px', width: '17' }}
+          style={{ width: '25px', height: '36px' }}
         />
         <span>Бориспіль</span>
       </Link>
       <DropDownNumbers phoneNumbers={phoneNumbers} />
-      <Link href="/" className={styles.favourite}>
-        <SvgIcon src={IconsEnum.favourite} style={{ width: '28px', height: '27px' }} />
-        <span>10</span>
+      <Link href="/" className={styles.compare}>
+        <SvgIcon src={IconsEnum.compare} style={{ width: '41px', height: '36px' }} />
+        <span>1</span>
       </Link>
       <SwitchThemeButton />
     </div>

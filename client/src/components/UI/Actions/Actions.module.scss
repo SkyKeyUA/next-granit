@@ -14,7 +14,7 @@
   display: inline-flex;
   align-items: center;
   font-weight: 600;
-  margin: 0px 25px;
+  margin-left: 25px;
   path {
     transition: all 0.3s ease 0s;
     fill: var(--primary-black);
@@ -56,7 +56,7 @@
     margin-right: 15px;
   }
 }
-.favourite {
+.compare {
   font-size: 27px;
   position: relative;
   path {
@@ -66,16 +66,20 @@
   span {
     transition: all 0.3s ease 0s;
     position: absolute;
-    left: 48%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 10px;
+    height: 20px;
+    width: 20px;
+    background: var(--orange);
+    right: -3px;
+    top: 0px;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--primary-black);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &:hover {
-    span {
-      color: var(--orange);
-    }
     path {
       fill: var(--orange);
     }
