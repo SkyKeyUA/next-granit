@@ -10,7 +10,7 @@ import { useProductsSelector } from '@redux/reducers/products/products.selectors
 import { Pagination } from '@components/UI/Pagination';
 import { setCurrentPage } from '@redux/reducers/filter/filter.reducer';
 import { useFilterSelector } from '@redux/reducers/filter/filter.selectors';
-import { Product } from '@components/Product';
+import { Card } from '@components/Card';
 
 export const HomePageComponent: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -41,7 +41,7 @@ export const HomePageComponent: React.FC = () => {
       )}
       <div className={styles.inner}>
         {productsFilter.map((product) => (
-          <Product key={product.id} {...product} />
+          <Card key={product.id} {...product} />
         ))}
       </div>
     </div>
