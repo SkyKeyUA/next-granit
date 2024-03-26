@@ -16,7 +16,9 @@ export const CardComponent: React.FC<Product> = ({ title, image, id }) => {
 
   return (
     <div className={styles.root}>
-      <SvgIcon className={styles.like} src={IconsEnum.like} />
+      <div className={styles.compare}>
+        <SvgIcon src={IconsEnum.compare} style={{ width: '20px', height: '17.57px' }} />
+      </div>
       <Link className={styles.link} href={`products/${id}`}>
         <Image className={styles.img} src={imageUrl} alt="productImg" fill priority sizes="30vw" />
       </Link>
@@ -25,7 +27,7 @@ export const CardComponent: React.FC<Product> = ({ title, image, id }) => {
           <Link href={`products/${id}`}>{light(title)}</Link>
         </div>
         <div className={styles.price}>
-          Ціна: <span>Уточнюйте</span>
+          Ціна: <span>Уточнити</span>
         </div>
       </div>
     </div>

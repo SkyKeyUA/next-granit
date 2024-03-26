@@ -18,6 +18,10 @@ export enum IconsEnum {
   sun = '/img/icons/sun.svg',
   back = '/img/icons/back.svg',
   compare = '/img/icons/compare.svg',
+  facebook = '/img/icons/social/facebook.svg',
+  instagram = '/img/icons/social/instagram.svg',
+  telegram = '/img/icons/social/telegram.svg',
+  viber = '/img/icons/social/viber.svg',
 }
 
 export type SvgIconProps = {

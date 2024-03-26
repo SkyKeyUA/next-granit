@@ -7,9 +7,11 @@
 .container {
   display: flex;
   align-items: center;
-  gap: 20px;
   min-height: 50px;
   padding: 10px;
+  @media (min-width: 479.98px) {
+    gap: 20px;
+  }
   @media (max-width: 991.98px) {
     justify-content: space-between;
   }
