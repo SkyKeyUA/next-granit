@@ -1,5 +1,6 @@
-export type FooterProps = {
-  id: number;
-  menuCatalog: string;
-  submenuCatalog: string[];
+import { IconsEnum } from '@components/UI/SvgIcon';
+
+export type SocialProps = {
+  link: string;
+  social: IconsEnum;
 };

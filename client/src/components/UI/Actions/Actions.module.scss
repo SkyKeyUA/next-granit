@@ -52,13 +52,20 @@
   }
 }
 .svg {
+  width: 25px !important;
+  height: 36px !important;
   @media (min-width: 479.98px) {
     margin-right: 15px;
   }
+  @media (max-width: 479.98px) {
+    width: 20.83px !important;
+    height: 30px !important;
+  }
 }
-.compare {
+.link {
   font-size: 27px;
   position: relative;
+
   path {
     transition: all 0.3s ease 0s;
     fill: var(--primary-black);
@@ -95,5 +102,21 @@
     path {
       fill: var(--white);
     }
+  }
+  @media (max-width: 479.98px) {
+    span {
+      font-size: 10px;
+      height: 16px;
+      width: 16px;
+      right: -2px;
+    }
+  }
+}
+.compare {
+  width: 41px !important;
+  height: 36px !important;
+  @media (max-width: 479.98px) {
+    width: 34.17px !important;
+    height: 30px !important;
   }
 }

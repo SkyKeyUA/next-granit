@@ -2,15 +2,10 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
-import { categories, phoneNumbers } from './Footer.constants';
+import { phoneNumbers, socialItems } from './Footer.constants';
 import { PhoneNumbers } from '@components/UI/PhoneNumbers';
-import { DynamicAccordion } from '@components/Common/Accordion/Accordion.component';
-import { useResponsive } from '@hooks/useResponsive';
-import { DynamiFooterCategories } from './Categories/FooterCategories.component';
 
 export const FooterComponent: React.FC = () => {
-  const [active, setActive] = React.useState([false, false, false, false, false]);
-  const { Mobile, ToMobile } = useResponsive();
   return (
     <footer className={styles.root}>
       <div className={styles.container}>
@@ -30,27 +25,16 @@ export const FooterComponent: React.FC = () => {
             </div>
             <PhoneNumbers phoneNumbers={phoneNumbers} icon={IconsEnum.phone} />
           </div>
-          <ToMobile>
-            {categories.map((obj) => (
-              <DynamiFooterCategories
-                key={obj.id}
-                title={obj.menuCatalog}
-                subtitle={obj.submenuCatalog}
-              />
-            ))}
-          </ToMobile>
-          <Mobile>
-            {categories.map((obj) => (
-              <DynamicAccordion
-                key={obj.id}
-                idx={obj.id}
-                turn={active}
-                setTurn={setActive}
-                title={obj.menuCatalog}
-                subtitle={obj.submenuCatalog}
-              />
-            ))}
-          </Mobile>
+          <div>
+            <div className={styles.callback}>Замовити виклик</div>
+            <div className={styles.social}>
+              {socialItems.map(({ link, social }) => (
+                <Link key={social} href="/">
+                  <SvgIcon size={36} src={social} />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>

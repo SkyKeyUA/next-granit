@@ -30,6 +30,10 @@
   transition: all 0.3s ease 0s;
   margin-left: 10px;
   background: inherit;
+  path {
+    transition: all 0.3s ease 0s;
+    fill: var(--primary-black);
+  }
   &:hover {
     opacity: 0.6;
   }
