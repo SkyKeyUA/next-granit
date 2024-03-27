@@ -28,22 +28,18 @@ export const HeaderTopComponent: React.FC = () => {
         <div className={`${styles.menu} ${menuOpen ? styles.menu_open : ''}`}>
           <nav className={styles.list}>
             <ul className={styles.items}>
-              {menuList.map((name, index) =>
-                index === 0 ? (
-                  <li
-                    onClick={() => setCategoryToggle(!categoryToggle)}
-                    key={index}
-                    className={`${styles.item} ${styles.item_catalog}`}>
+              <li
+                onClick={() => setCategoryToggle(!categoryToggle)}
+                className={`${styles.item} ${styles.item_catalog}`}>
+                Каталог товарів
+              </li>
+              {menuList.map(({ link, name }) => (
+                <li key={name} className={styles.item}>
+                  <Link href={link} className={styles.link}>
                     {name}
-                  </li>
-                ) : (
-                  <li key={index} className={styles.item}>
-                    <Link href="/" className={styles.link}>
-                      {name}
-                    </Link>
-                  </li>
-                ),
-              )}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

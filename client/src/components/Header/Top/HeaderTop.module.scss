@@ -54,23 +54,22 @@
 }
 
 .item {
-  transition: all 0.3s ease 0s;
   a,
   a:visited {
+    transition: all 0.3s ease 0s;
     display: inline-block;
   }
 
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  a,
-  a:visited {
-    &:active {
-      -webkit-transform: translateY(1px);
-      transform: translateY(1px);
+  @media (min-width: 991.98px) {
+    a,
+    a:visited {
+      &:hover {
+        text-decoration: underline;
+      }
+      &:active {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+      }
     }
   }
 }
