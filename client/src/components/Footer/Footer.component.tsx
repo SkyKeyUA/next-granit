@@ -28,7 +28,7 @@ export const FooterComponent: React.FC = () => {
               </div>
               <PhoneNumbers phoneNumbers={phoneNumbers} icon={IconsEnum.phone} />
             </div>
-            <div>
+            <div className={styles.column}>
               <div className={styles.callback}>Замовити виклик</div>
               <div className={styles.social}>
                 {socialItems.map(({ link, social }) => (
@@ -38,7 +38,7 @@ export const FooterComponent: React.FC = () => {
                 ))}
               </div>
             </div>
-            <ul className={styles.info}>
+            <ul className={`${styles.column} ${styles.info}`}>
               <li>Інформація:</li>
               {menuList.map(({ link, name }) => (
                 <li key={name}>
