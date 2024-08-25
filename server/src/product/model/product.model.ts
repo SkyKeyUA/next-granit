@@ -11,7 +11,7 @@ import {
 interface ProductCreationAttrs {
   title: string;
   content: string;
-  image: string;
+  images: string[];
   userId: number;
   subCatalogId: string;
 }
@@ -36,8 +36,8 @@ export class Product extends Model<Product, ProductCreationAttrs> {
   @Column({ type: DataType.STRING, allowNull: true })
   content: string;
 
-  @Column({ type: DataType.STRING })
-  image: string;
+  @Column({ type: DataType.ARRAY(DataType.STRING) })
+  images: string[];
 
   @Column({ type: DataType.STRING, allowNull: false })
   subCatalogId: string;
