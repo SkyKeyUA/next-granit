@@ -6,16 +6,20 @@ import { FileType } from './file.interface';
 
 @Injectable()
 export class FileService {
-  createFile(type: FileType, file): string {
+  createFile(type: FileType, files: Express.Multer.File[]): string[] {
     try {
-      const fileExtension = file.originalname.split('.').pop();
-      const fileName = `${uuid.v4()}.${fileExtension}`;
-      const filePath = path.resolve(__dirname, '../../src/', 'static', type);
-      if (!fs.existsSync(filePath)) {
-        fs.mkdirSync(filePath, { recursive: true });
+      const fileNames: string[] = [];
+      for (const file of files) {
+        const fileExtension = file.originalname.split('.').pop();
+        const fileName = `${uuid.v4()}.${fileExtension}`;
+        const filePath = path.resolve(__dirname, '../../src/', 'static', type);
+        if (!fs.existsSync(filePath)) {
+          fs.mkdirSync(filePath, { recursive: true });
+        }
+        fs.writeFileSync(path.resolve(filePath, fileName), file.buffer);
+        fileNames.push(`${type}/${fileName}`);
       }
-      fs.writeFileSync(path.resolve(filePath, fileName), file.buffer);
-      return type + '/' + fileName;
+      return fileNames;
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }

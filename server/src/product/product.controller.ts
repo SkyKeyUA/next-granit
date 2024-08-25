@@ -19,14 +19,14 @@ export class ProductController {
   constructor(private productService: ProductService) {}
 
   @Post()
-  @UseInterceptors(FileFieldsInterceptor([{ name: 'image', maxCount: 1 }]))
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'images', maxCount: 4 }]))
   create(
     @UploadedFiles()
-    files: { image?: Express.Multer.File[] },
+    files: { images?: Express.Multer.File[] },
     @Body() dto: CreateProductDto,
   ) {
-    const { image } = files;
-    return this.productService.create(dto, image[0]);
+    const { images } = files;
+    return this.productService.create(dto, images);
   }
 
   @Get('/all')
@@ -45,15 +45,21 @@ export class ProductController {
   }
 
   @Patch(':id')
-  @UseInterceptors(FileFieldsInterceptor([{ name: 'image', maxCount: 1 }]))
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'images', maxCount: 4 }]))
   update(
     @Param('id') id: number,
     @Body() updateData: Partial<CreateProductDto>,
     @UploadedFiles()
-    files: { image?: Express.Multer.File[] },
+    files: { images?: Express.Multer.File[] },
+    @Body('imageIndexToRemove') imageIndexToRemove?: number,
   ) {
-    const { image } = files;
-    return this.productService.update(id, updateData, image[0]);
+    const { images } = files;
+    return this.productService.update(
+      id,
+      updateData,
+      images,
+      imageIndexToRemove,
+    );
   }
 
   @Delete(':id')
