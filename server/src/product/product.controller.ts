@@ -51,15 +51,9 @@ export class ProductController {
     @Body() updateData: Partial<CreateProductDto>,
     @UploadedFiles()
     files: { images?: Express.Multer.File[] },
-    @Body('imageIndexToRemove') imageIndexToRemove?: number,
   ) {
     const { images } = files;
-    return this.productService.update(
-      id,
-      updateData,
-      images,
-      imageIndexToRemove,
-    );
+    return this.productService.update(id, updateData, images);
   }
 
   @Delete(':id')
