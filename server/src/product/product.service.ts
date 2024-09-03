@@ -56,7 +56,6 @@ export class ProductService {
     id: number,
     updateData: Partial<CreateProductDto>,
     images?: Express.Multer.File[],
-    imageIndexToRemove?: number,
   ) {
     const product = await this.productModel.findOne({ where: { id } });
     if (!product) {
@@ -65,7 +64,9 @@ export class ProductService {
     if (product.title !== updateData.title) {
       await this.checkUniqueTitle(updateData.title);
     }
-    await this.fileService.removeFile(product.images[imageIndexToRemove]);
+    for (const image of product.images) {
+      await this.fileService.removeFile(image);
+    }
     const fileName = await this.fileService.createFile(FileType.IMAGE, images);
     await product.update({ ...updateData, images: fileName });
     return product;
