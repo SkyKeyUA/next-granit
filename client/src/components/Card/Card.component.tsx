@@ -8,8 +8,8 @@ import { baseURL } from '@api/index';
 import { Highlight } from '@components/UI/Highlight';
 import { Product } from '@customTypes/index';
 
-export const CardComponent: React.FC<Product> = ({ title, image, id }) => {
-  const imageUrl = `${baseURL}${image}`;
+export const CardComponent: React.FC<Product> = ({ title, images, id }) => {
+  const imageUrl = `${baseURL}${images[0]}`;
   const light = (str: string) => {
     return <Highlight str={str} />;
   };

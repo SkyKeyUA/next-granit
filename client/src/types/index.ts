@@ -7,7 +7,7 @@ export type Product = {
   id: number;
   title: string;
   content: string;
-  image: string;
+  images: string[];
   subCatalogId: string;
   userId: number;
 };
