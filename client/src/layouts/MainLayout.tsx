@@ -1,9 +1,12 @@
 import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
+  const hideComponent = router.pathname === '/login' ? false : true;
   return (
     <>
       <Head>
@@ -12,9 +15,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      {hideComponent && <Header />}
       <main>{children}</main>
-      <Footer />
+      {hideComponent && <Footer />}
     </>
   );
 };
