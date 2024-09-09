@@ -20,7 +20,6 @@
 .columns {
   display: flex;
   gap: 40px;
-  flex: 1 0 auto;
   @media (max-width: 991.98px) {
     gap: 18px;
   }
@@ -178,9 +177,7 @@
 }
 .map {
   border: 1px solid var(--primary-black);
-  min-height: 220px;
-  @media (min-width: 767.98px) {
-  }
+  flex: 1 1 auto;
 }
 .copyright {
   font-weight: 700;
