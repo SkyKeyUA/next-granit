@@ -34,9 +34,10 @@ export const HomePageComponent: React.FC = () => {
 
     return getProductsPages();
   }, [currentPage, searchValue]);
+  console.log(countPage);
   return (
     <div className={styles.container}>
-      {countPage && !searchValue && (
+      {countPage !== 0 && !searchValue && (
         <Pagination currentPage={currentPage} count={count} onChangePage={onChangePage} />
       )}
       <div className={styles.inner}>

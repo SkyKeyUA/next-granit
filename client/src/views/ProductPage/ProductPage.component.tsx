@@ -22,11 +22,15 @@ export const ProductPageComponent: React.FC = () => {
   if (!product) {
     return <div>Loading...</div>;
   }
-  const { title, content, image } = product;
-  const imageUrl = `${baseURL}${image}`;
+  const { title, content, images } = product;
   return (
     <div style={{ position: 'relative' }}>
-      <Image className={styles.img} src={imageUrl} alt="productImg" fill priority sizes="30vw" />
+      {images.map((image) => {
+        const imageUrl = `${baseURL}${image}`;
+        return (
+          <Image className={styles.img} src={imageUrl} alt={title} fill priority sizes="30vw" />
+        );
+      })}
     </div>
   );
 };
