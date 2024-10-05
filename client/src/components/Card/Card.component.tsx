@@ -20,7 +20,7 @@ export const CardComponent: React.FC<Product> = ({ title, images, id }) => {
         <SvgIcon src={IconsEnum.compare} style={{ width: '20px', height: '17.57px' }} />
       </div>
       <Link className={styles.link} href={`products/${id}`}>
-        <Image className={styles.img} src={imageUrl} alt="productImg" fill priority sizes="30vw" />
+        <Image className={styles.img} src={imageUrl} alt={title} fill priority sizes="30vw" />
       </Link>
       <div className={styles.body}>
         <div className={styles.title}>
